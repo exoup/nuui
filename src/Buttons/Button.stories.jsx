@@ -1,12 +1,10 @@
-import { colorOptions, radiusOptions, loadingOptions } from "../util/classOptions";
+import { colorOptions, radiusOptions, sizeOptions, loadingOptions } from "../util/classOptions";
 
 export default {
     args: {
         children: 'Default',
         disabled: false,
         loading: false,
-        id: '',
-        role: '',
     },
     argTypes: {
         type: {
@@ -19,7 +17,7 @@ export default {
         },
         colorClass: {
             defaultValue: 'primary',
-            options: ['primary', 'secondary', 'tertiary', 'grape', 'info', 'success', 'warning', 'danger', 'light', 'dark', 'body'],
+            options: ['primary', 'secondary', 'tertiary', 'grape', 'info', 'success', 'warning', 'danger', 'light', 'dark'],
             control: { type: 'radio' }
         },
         radiusClass: {
@@ -27,31 +25,33 @@ export default {
             options: ['round', 'sharp', 'full'],
             control: { type: 'radio' }
         },
+        sizeClass: {
+            defaultValue: 'normal',
+            options: ['responsive', 'normal', 'wide', 'full'],
+            control: { type: 'radio' }
+        },
         loadingClass: {
             defaultValue: 'three-quarter',
-            options: ['three-quarter'],
+            options: ['three-quarter', 'three-quarter-dark'],
             control: { type: 'radio' }
         }
     }
 }
 
 export const Button = (props) => {
-    const { type, disabled, id, role, onClick, loading = false, loadingClass = 'three-quarter', colorClass = 'primary', radiusClass = 'round' } = props;
+    const { type, disabled, id, role, ref, onClick, loading = false, loadingClass = 'three-quarter', colorClass = 'primary', radiusClass = 'round', sizeClass = 'normal' } = props;
 
     const commonProps = {
         id,
         role,
+        ref,
         onClick,
         type,
         disabled
     }
 
-    colorOptions;
-    radiusOptions;
-    loadingOptions;
-
     return (
-        <button {...commonProps} className={`${colorOptions[colorClass]} ${radiusOptions[radiusClass]} text-white h-11 min-w-24 py-2.5 px-5 shadow-sm hover:bg-opacity-85 disabled:hover:bg-opacity-100 font-semibold text-center cursor-pointer disabled:cursor-not-allowed transition-all`}>
+        <button {...commonProps} className={`${colorOptions[colorClass]} ${radiusOptions[radiusClass]} ${sizeOptions[sizeClass]} h-11 py-2.5 px-5 shadow-sm font-semibold text-center cursor-pointer disabled:cursor-not-allowed transition-all`}>
             {
                 loading ? <span className={`${loadingOptions[loadingClass]}`}></span> : props.children
             }
@@ -59,21 +59,28 @@ export const Button = (props) => {
     )
 };
 
-export const SplitButton = (props) => {
-    const { type, disabled, id, role, onClick } = props;
-
-    const commonProps = {
-        id,
-        role,
-        onClick,
-        type,
-        disabled
-    }
-
-    return (
-        <button {...commonProps} className={'py-2.5 px-5 rounded-full shadow-sm bg-primary hover:bg-opacity-85 disabled:hover:bg-opacity-100 text-white font-semibold text-center cursor-pointer disabled:cursor-not-allowed transition-all'}>
-            {props.iconClass}
-            {props.children}
-        </button>
-    )
+export const PillButton = Button.bind({});
+PillButton.args = {
+    label: "PillButton",
+    sizeClass: 'wide',
+    radiusClass: 'full'
 };
+
+// export const SplitButton = (props) => {
+//     const { type, disabled, id, role, onClick } = props;
+
+//     const commonProps = {
+//         id,
+//         role,
+//         onClick,
+//         type,
+//         disabled
+//     }
+
+//     return (
+//         <button {...commonProps} className={'py-2.5 px-5 rounded-full shadow-sm bg-primary hover:bg-opacity-85 disabled:hover:bg-opacity-100 text-white font-semibold text-center cursor-pointer disabled:cursor-not-allowed transition-all'}>
+//             {props.iconClass}
+//             {props.children}
+//         </button>
+//     )
+// };
