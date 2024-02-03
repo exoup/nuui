@@ -1,4 +1,5 @@
-import { colorOptions, radiusOptions, sizeOptions, loadingOptions } from "../util/classOptions";
+import { Fragment } from "react";
+import { buttonColorOptions, radiusOptions, sizeOptions, loadingOptions } from "../util/classOptions";
 
 export default {
     args: {
@@ -51,7 +52,7 @@ export const Button = (props) => {
     }
 
     return (
-        <button {...commonProps} className={`${colorOptions[colorClass]} ${radiusOptions[radiusClass]} ${sizeOptions[sizeClass]} h-11 py-2.5 px-5 shadow-sm font-semibold text-center cursor-pointer disabled:cursor-not-allowed transition-all`}>
+        <button {...commonProps} className={`${buttonColorOptions[colorClass]} ${radiusOptions[radiusClass]} ${sizeOptions[sizeClass]} py-2.5 px-5 max-h-11 shadow-sm font-semibold text-center cursor-pointer disabled:cursor-not-allowed transition-all`}>
             {
                 loading ? <span className={`${loadingOptions[loadingClass]}`}></span> : props.children
             }
@@ -66,21 +67,27 @@ PillButton.args = {
     radiusClass: 'full'
 };
 
-// export const SplitButton = (props) => {
-//     const { type, disabled, id, role, onClick } = props;
+export const LeadingButton = (props) => {
+    const { type, disabled, id, role, ref, onClick, loading = false, loadingClass = 'three-quarter', colorClass = 'primary', radiusClass = 'round', sizeClass = 'normal' } = props;
 
-//     const commonProps = {
-//         id,
-//         role,
-//         onClick,
-//         type,
-//         disabled
-//     }
+    const commonProps = {
+        id,
+        role,
+        ref,
+        onClick,
+        type,
+        disabled
+    }
 
-//     return (
-//         <button {...commonProps} className={'py-2.5 px-5 rounded-full shadow-sm bg-primary hover:bg-opacity-85 disabled:hover:bg-opacity-100 text-white font-semibold text-center cursor-pointer disabled:cursor-not-allowed transition-all'}>
-//             {props.iconClass}
-//             {props.children}
-//         </button>
-//     )
-// };
+    return (
+        <button {...commonProps} className={`${buttonColorOptions[colorClass]} ${radiusOptions[radiusClass]} ${sizeOptions[sizeClass]} max-h-11 shadow-sm font-semibold text-center cursor-pointer disabled:cursor-not-allowed transition-all`}>
+            {
+                loading ? <span className={`${loadingOptions[loadingClass]}`}></span> :
+                    <>
+                        <span className={`inline-block py-2.5 px-3 bg-[rgba(0,0,0,0.15)] ${radiusOptions[radiusClass]}`}>A</span>
+                        <span className="px-5">{props.children}</span>
+                    </>
+            }
+        </button>
+    )
+};
