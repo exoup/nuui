@@ -1,14 +1,14 @@
 export const colorOptions = {
-    primary: 'bg-primary text-white hover:bg-primary/80 focus:bg-primary/70',
-    secondary: 'bg-secondary text-white hover:bg-secondary/80 focus:bg-secondary/70',
-    tertiary: 'bg-tertiary text-white hover:bg-tertiary/80 focus:bg-tertiary/70',
-    grape: 'bg-grape text-white hover:bg-grape/80 focus:bg-grape/70',
-    info: 'bg-info text-white hover:bg-info/80 focus:bg-info/70',
-    success: 'bg-success text-white hover:bg-success/80 focus:bg-success/70',
-    warning: 'bg-warning text-white hover:bg-warning/80 focus:bg-warning/70',
-    danger: 'bg-danger text-white hover:bg-danger/80 focus:bg-danger/70',
-    light: 'bg-light text-dark hover:bg-light/80 focus:bg-light/70',
-    dark: 'bg-dark text-white hover:bg-dark/80 focus:bg-dark/70'
+    primary: 'bg-primary text-white hover:bg-primary/80 hover:focus:bg-primary/70',
+    secondary: 'bg-secondary text-white hover:bg-secondary/80 hover:focus:bg-secondary/70',
+    tertiary: 'bg-tertiary text-white hover:bg-tertiary/80 hover:focus:bg-tertiary/70',
+    grape: 'bg-grape text-white hover:bg-grape/80 hover:focus:bg-grape/70',
+    info: 'bg-info text-white hover:bg-info/80 hover:focus:bg-info/70',
+    success: 'bg-success text-white hover:bg-success/80 hover:focus:bg-success/70',
+    warning: 'bg-warning text-white hover:bg-warning/80 hover:focus:bg-warning/70',
+    danger: 'bg-danger text-white hover:bg-danger/80 hover:focus:bg-danger/70',
+    light: 'bg-light text-dark hover:bg-light/80 hover:focus:bg-light/70',
+    dark: 'bg-dark text-white hover:bg-dark/80 hover:focus:bg-dark/70'
 };
 
 export const radiusOptions = {
