@@ -1,0 +1,53 @@
+{
+  "about": {
+    "homepage": "https://www.ladle.dev",
+    "github": "https://github.com/tajo/ladle",
+    "version": 1
+  },
+  "stories": {
+    "button--default": {
+      "name": "Default",
+      "levels": [
+        "Button"
+      ],
+      "locStart": 50,
+      "locEnd": 52,
+      "filePath": "src/Button/Button.stories.jsx",
+      "namedExport": "Default",
+      "meta": {}
+    },
+    "button--leading-button": {
+      "name": "Leading button",
+      "levels": [
+        "Button"
+      ],
+      "locStart": 66,
+      "locEnd": 79,
+      "filePath": "src/Button/Button.stories.jsx",
+      "namedExport": "LeadingButtonDefault",
+      "meta": {}
+    },
+    "button--pill-button": {
+      "name": "Pill button",
+      "levels": [
+        "Button"
+      ],
+      "locStart": 54,
+      "locEnd": 56,
+      "filePath": "src/Button/Button.stories.jsx",
+      "namedExport": "PillButtonDefault",
+      "meta": {}
+    },
+    "button--shape-button": {
+      "name": "Shape button",
+      "levels": [
+        "Button"
+      ],
+      "locStart": 82,
+      "locEnd": 92,
+      "filePath": "src/Button/Button.stories.jsx",
+      "namedExport": "ShapeButtonDefault",
+      "meta": {}
+    }
+  }
+}
