@@ -26,7 +26,7 @@ export default {
         },
         colorClass: {
             defaultValue: 'primary',
-            options: ['primary', 'secondary', 'tertiary', 'grape', 'info', 'success', 'warning', 'danger', 'light', 'dark'],
+            options: ['primary', 'secondary', 'tertiary', 'success', 'dark', 'background-dark'],
             control: { type: 'radio' }
         },
         radiusClass: {

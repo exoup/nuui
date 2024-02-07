@@ -1,14 +1,10 @@
 export const buttonColorOptions = {
-    primary: 'bg-primary text-white hover:bg-primary/80 hover:focus:bg-primary/70',
-    secondary: 'bg-secondary text-white hover:bg-secondary/80 hover:focus:bg-secondary/70',
-    tertiary: 'bg-tertiary text-white hover:bg-tertiary/80 hover:focus:bg-tertiary/70',
-    grape: 'bg-grape text-white hover:bg-grape/80 hover:focus:bg-grape/70',
-    info: 'bg-info text-white hover:bg-info/80 hover:focus:bg-info/70',
-    success: 'bg-success text-white hover:bg-success/80 hover:focus:bg-success/70',
-    warning: 'bg-warning text-white hover:bg-warning/80 hover:focus:bg-warning/70',
-    danger: 'bg-danger text-white hover:bg-danger/80 hover:focus:bg-danger/70',
-    light: 'bg-light text-black hover:bg-gray-100 hover:focus:bg-light/70 ring-1 ring-inset ring-dark dark:bg-dark dark:text-light dark:hover:bg-dark/80 dark:hover:focus:bg-dark/70 dark:ring-info',
-    dark: 'bg-dark text-white hover:bg-dark/80 hover:focus:bg-dark/70'
+    primary: 'bg-primary text-primary-text hover:bg-primary-dark',
+    secondary: 'bg-secondary text-secondary-text hover:bg-secondary-dark',
+    tertiary: 'bg-tertiary text-tertiary-text hover:bg-tertiary-dark',
+    success: 'bg-success text-success-text hover:bg-[#DCFCE7]',
+    dark: 'bg-dark text-white hover:bg-dark/70 dark:hover:bg-white/20',
+    "background-dark": 'bg-background-dark text-background-dark-text ring-1 ring-inset ring-background-dark-text hover:bg-background-dark/90 dark:hover:bg-white/5'
 };
 
 export const radiusOptions = {
