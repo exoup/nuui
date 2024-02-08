@@ -58,8 +58,7 @@ export const PillButtonDefault = ({ children, ...args }) => (
 PillButtonDefault.args = {
     children: 'Pill Button',
     sizeClass: 'wide',
-    radiusClass: 'full',
-    colorClass: 'tertiary',
+    radiusClass: 'full'
 };
 PillButtonDefault.storyName = 'Pill Button';
 
