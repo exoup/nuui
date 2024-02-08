@@ -21,8 +21,8 @@
       "levels": [
         "Button"
       ],
-      "locStart": 66,
-      "locEnd": 79,
+      "locStart": 65,
+      "locEnd": 78,
       "filePath": "src/Button/Button.stories.jsx",
       "namedExport": "LeadingButtonDefault",
       "meta": {}
@@ -43,8 +43,8 @@
       "levels": [
         "Button"
       ],
-      "locStart": 82,
-      "locEnd": 92,
+      "locStart": 81,
+      "locEnd": 91,
       "filePath": "src/Button/Button.stories.jsx",
       "namedExport": "ShapeButtonDefault",
       "meta": {}
