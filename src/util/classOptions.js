@@ -1,10 +1,9 @@
 export const buttonColorOptions = {
     primary: 'bg-primary text-primary-text hover:bg-primary-dark',
-    secondary: 'bg-secondary text-secondary-text hover:bg-secondary-dark',
-    tertiary: 'bg-tertiary text-tertiary-text hover:bg-tertiary-dark',
-    success: 'bg-success text-success-text hover:bg-[#DCFCE7]',
+    secondary: 'bg-secondary text-secondary-text hover:bg-secondary-dark ring-1 ring-inset ring-light dark:bg-secondary-text/80 dark:text-secondary-dark dark:hover:bg-secondary-text dark:ring-dark',
+    tertiary: 'bg-tertiary-dark text-white hover:bg-tertiary dark:bg-tertiary-text dark:text-tertiary dark:ring-1 dark:ring-tertiary dark:hover:text-tertiary-dark dark:hover:ring-tertiary',
     dark: 'bg-dark text-white hover:bg-dark/70 dark:hover:bg-white/20',
-    "background-dark": 'bg-background-dark text-background-dark-text ring-1 ring-inset ring-background-dark-text hover:bg-background-dark/90 dark:hover:bg-white/5'
+    success: 'bg-success text-success-text hover:bg-[#DCFCE7]',
 };
 
 export const radiusOptions = {
