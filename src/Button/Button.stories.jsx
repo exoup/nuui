@@ -59,7 +59,7 @@ PillButtonDefault.args = {
     children: 'Pill Button',
     sizeClass: 'wide',
     radiusClass: 'full',
-    colorClass: 'grape',
+    colorClass: 'tertiary',
 };
 PillButtonDefault.storyName = 'Pill Button';
 
