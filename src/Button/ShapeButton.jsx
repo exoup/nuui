@@ -13,7 +13,7 @@ export const ShapeButton = (props) => {
     }
 
     return (
-        <button {...commonProps} className={`flex ${buttonColorOptions[colorClass]} ${radiusOptions[radiusClass]} size-12 shadow-sm font-semibold overflow-hidden cursor-pointer disabled:cursor-not-allowed transition-all`}>
+        <button {...commonProps} className={`flex ${buttonColorOptions[colorClass]} ${radiusOptions[radiusClass]} size-12 shadow-lg font-semibold overflow-hidden cursor-pointer disabled:cursor-not-allowed transition-all`}>
             {
                 props.children
             }
