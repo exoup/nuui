@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import "tailwindcss/tailwind.css";
+import { ThemeProvider } from "../src/Context/ThemeContext";
 
 export const Provider = ({ children, globalState }) => {
     useEffect(() => {
@@ -9,5 +10,9 @@ export const Provider = ({ children, globalState }) => {
             document.documentElement.classList.remove("dark");
         }
     }, [globalState.theme]);
-    return <div className="p-4">{children}</div>;
+    return (
+        <ThemeProvider themeColor="tertiary">
+            <div className="p-4">{children}</div>
+        </ThemeProvider>
+    )
 };

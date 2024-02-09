@@ -1,7 +1,9 @@
 import { buttonColorOptions, radiusOptions } from "../util/classOptions.js";
+import { useTheme } from "../Context/ThemeContext.jsx";
 
 export const ShapeButton = (props) => {
-    const { type = 'button', disabled, id, role, ref, onClick, colorClass = 'primary', radiusClass = 'full' } = props;
+    const themeColor = useTheme();
+    const { type = 'button', disabled, id, role, ref, onClick, colorClass = themeColor, radiusClass = 'full' } = props;
 
     const commonProps = {
         id,

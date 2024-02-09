@@ -1,7 +1,9 @@
 import { buttonColorOptions, radiusOptions, sizeOptions } from "../util/classOptions.js";
+import { useTheme } from "../Context/ThemeContext.jsx";
 
 export const LeadingButton = (props) => {
-    const { type = 'button', disabled, id, role, ref, onClick, colorClass = 'primary', radiusClass = 'round', sizeClass = 'normal' } = props;
+    const themeColor = useTheme();
+    const { type = 'button', disabled, id, role, ref, onClick, colorClass = themeColor, radiusClass = 'round', sizeClass = 'normal' } = props;
 
     const commonProps = {
         id,

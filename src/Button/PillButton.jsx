@@ -1,8 +1,10 @@
 import { buttonColorOptions, radiusOptions, sizeOptions } from "../util/classOptions";
 import { LoadingIcon } from "../Icon/Icon.jsx";
+import { useTheme } from "../Context/ThemeContext.jsx";
 
 export const PillButton = (props) => {
-    const { type, disabled, id, role, ref, onClick, loading = false, loadingClass, colorClass = 'primary', radiusClass = 'full', sizeClass = 'wide' } = props;
+    const themeColor = useTheme();
+    const { type = 'button', disabled, id, role, ref, onClick, loading = false, loadingClass, colorClass = themeColor, radiusClass = 'full', sizeClass = 'wide' } = props;
 
     const commonProps = {
         id,
