@@ -7,7 +7,7 @@ import { ShapeButton } from "./ShapeButton.jsx";
 import { Icon } from '../Icon/Icon.jsx';
 import { Follower } from "../Textual/Follower.jsx";
 //Icons
-import { ChevronRightIcon, ArrowUpCircleIcon } from '@heroicons/react/24/outline'
+import { ArrowUpIcon, CheckIcon } from '@heroicons/react/24/outline'
 
 export default {
     args: {
@@ -67,7 +67,7 @@ export const LeadingButtonDefault = ({ children, loading, loadingClass, ...args 
         <LeadingButton {...args}>
             {
                 <Icon loading={loading} loadingClass={loadingClass} icons={[
-                    { name: "ChevronRightIcon", element: <ChevronRightIcon /> },
+                    { name: "CheckIcon", element: <CheckIcon /> },
                 ]} />
             }
             <Follower>
@@ -83,7 +83,7 @@ export const ShapeButtonDefault = ({ loading, loadingClass, ...args }) => {
         <ShapeButton {...args}>
             {
                 <Icon loading={loading} loadingClass={loadingClass} icons={[
-                    { name: "ArrowUpCircleIcon", element: <ArrowUpCircleIcon /> }
+                    { name: "ArrowUpIcon", element: <ArrowUpIcon /> }
                 ]} />
             }
         </ShapeButton>
