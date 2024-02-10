@@ -15,7 +15,7 @@ export const LeadingButton = (props) => {
     }
 
     return (
-        <button {...commonProps} className={`flex ${buttonColorOptions[colorClass]} ${radiusOptions[radiusClass]} ${sizeOptions[sizeClass]} max-h-11 min-h-11 shadow-sm font-semibold overflow-hidden cursor-pointer disabled:cursor-not-allowed transition-all`}>
+        <button {...commonProps} className={`flex ${buttonColorOptions[colorClass]} ${radiusOptions[radiusClass]} ${sizeOptions[sizeClass]} max-h-11 min-h-11 shadow font-semibold overflow-hidden cursor-pointer disabled:cursor-not-allowed transition-all`}>
             {props.children}
         </button>
     )

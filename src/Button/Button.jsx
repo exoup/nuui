@@ -16,7 +16,7 @@ export const Button = (props) => {
     }
 
     return (
-        <button {...commonProps} className={`${buttonColorOptions[colorClass]} ${radiusOptions[radiusClass]} ${sizeOptions[sizeClass]} py-2.5 px-5 max-h-11 shadow-sm font-semibold text-center cursor-pointer disabled:cursor-not-allowed disabled:bg-light  transition-all`}>
+        <button {...commonProps} className={`${buttonColorOptions[colorClass]} ${radiusOptions[radiusClass]} ${sizeOptions[sizeClass]} py-2.5 px-5 max-h-11 shadow font-semibold text-center cursor-pointer disabled:cursor-not-allowed disabled:bg-light  transition-all`}>
             {
                 loading ? <LoadingIcon loadingClass={loadingClass} /> : props.children
             }
