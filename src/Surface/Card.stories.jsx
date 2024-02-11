@@ -12,7 +12,7 @@ export default {
     argTypes: {
         themeClass: {
             defaultValue: 'primary',
-            options: ['primary', 'secondary', 'tertiary', 'dark'],
+            options: ['primary', 'secondary', 'tertiary', 'neutral'],
             control: { type: 'inline-radio' }
         },
         radiusClass: {
@@ -30,13 +30,13 @@ export const CardWithHero = ({ themeClass, textClass, ...args }) => (
             <Title>This is a card component.</Title>
             <p>It uses a Hero with a background-image.</p>
             <br />
-            <p className="mb-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+            <p className="mb-4">It also has a full-size Button.</p>
             <Button colorClass={themeClass} sizeClass="full">Button</Button>
         </Content>
     </Card>
 );
 
-export const CardWithImage = ({ themeClass, textClass, ...args }) => (
+export const CardWithImage = ({ themeClass, textClass, className, ...args }) => (
     <Card {...args}>
         <Hero className={`h-96`}>
             <img className={`h-96 w-full object-cover`} src="https://source.unsplash.com/user/erondu/800x600" alt="Hero Image" />
