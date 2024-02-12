@@ -1,21 +1,21 @@
 export const buttonColorOptions = {
-    primary: 'bg-primary text-primary-text hover:bg-primary-dark',
-    secondary: 'bg-secondary-dark/80 text-secondary-text hover:bg-secondary-dark/60 ring-1 ring-inset ring-light dark:bg-secondary-text dark:text-secondary-dark dark:hover:bg-slate-800 dark:ring-dark',
-    tertiary: 'bg-tertiary-dark text-white hover:bg-tertiary dark:bg-tertiary-text dark:text-tertiary dark:ring-2 dark:ring-tertiary dark:hover:text-tertiary-dark dark:hover:ring-tertiary',
-    neutral: 'bg-neutral-50 text-neutral-700 ring-1 ring-neutral-700 hover:bg-neutral-100 dark:bg-neutral-800 dark:hover:bg-neutral-900 dark:ring-neutral-800 dark:text-white',
+    primary: 'bg-primary text-primary-text hover:bg-primary-700',
+    secondary: 'bg-secondary-200 text-secondary-text hover:bg-secondary-100 ring-1 ring-inset ring-light dark:bg-secondary-text dark:text-secondary-200 dark:hover:bg-slate-800 dark:ring-dark',
+    tertiary: 'bg-tertiary-500 text-white hover:bg-tertiary-600 dark:bg-tertiary-text dark:text-tertiary dark:ring-2 dark:ring-tertiary dark:hover:text-tertiary-300 dark:hover:ring-tertiary-300',
+    neutral: 'bg-white text-neutral-700 ring-1 ring-neutral-700 hover:bg-neutral-50 dark:bg-neutral-800 dark:hover:bg-neutral-900 dark:ring-neutral-800 dark:text-white',
     success: 'bg-success text-success-text hover:bg-[#DCFCE7]',
 };
 
 export const cardColorOptions = {
     primary: 'bg-white dark:bg-gray-800 ring-1 ring-gray-300 dark:ring-gray-700',
-    secondary: 'bg-[#FAF8F7]  dark:bg-[#121723] ring-1 ring-light dark:ring-dark',
-    tertiary: 'bg-white dark:bg-tertiary-text ring-2 ring-tertiary-dark/30 dark:ring-tertiary',
+    secondary: 'bg-secondary-50 dark:bg-gray-900 ring-1 ring-light dark:ring-dark',
+    tertiary: 'bg-white dark:bg-tertiary-text ring-2 ring-tertiary-200 dark:ring-tertiary',
     neutral: 'bg-neutral-50 dark:bg-neutral-900 ring-1 ring-neutral-700 dark:ring-neutral-800'
 };
 
 export const cardTextOptions = {
     primary: 'text-gray-700 dark:text-gray-300',
-    secondary: 'text-secondary-text dark:text-secondary-dark',
+    secondary: 'text-secondary-text dark:text-secondary-50',
     tertiary: 'text-tertiary-text dark:text-white',
     neutral: 'text-zinc-800 dark:text-neutral-50'
 }

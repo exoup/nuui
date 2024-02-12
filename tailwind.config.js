@@ -19,7 +19,6 @@ module.exports = {
                     '900': '#2b347d',
                     '950': '#1e224d',
                     'text': '#FFFFFF',
-                    'dark': '#264ACA',
                 },
                 secondary: {
                     '50': '#f9f8f7',
@@ -35,7 +34,6 @@ module.exports = {
                     '900': '#594943',
                     '950': '#2e2521',
                     'text': '#111827',
-                    'dark': '#EBE3E0',
                 },
                 tertiary: {
                     '50': '#fff1f1',
@@ -51,7 +49,6 @@ module.exports = {
                     '900': '#8b1030',
                     '950': '#4e0314',
                     'text': '#141414',
-                    'dark': '#FF6674',
                 },
                 dark: '#454555',
                 "dark-text": '#FFFFFF',
@@ -59,8 +56,6 @@ module.exports = {
                 "light-text": '#191919',
                 success: '#B2EDC5',
                 "success-text": '#10512A',
-                "background-dark": '#191919',
-                "background-dark-text": '#FF7A88',
             },
         },
     },
