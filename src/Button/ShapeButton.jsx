@@ -3,7 +3,7 @@ import { useTheme } from "../Context/ThemeContext.jsx";
 
 export const ShapeButton = (props) => {
     const themeColor = useTheme();
-    const { type = 'button', disabled, id, role, ref, onClick, colorClass = themeColor, radiusClass = 'full' } = props;
+    const { type = 'button', disabled, id, role, ref, onClick, themeClass = themeColor, radiusClass = 'full' } = props;
 
     const commonProps = {
         id,
@@ -15,7 +15,7 @@ export const ShapeButton = (props) => {
     }
 
     return (
-        <button {...commonProps} className={`flex ${buttonColorOptions[colorClass]} ${radiusOptions[radiusClass]} size-12 shadow-lg font-semibold overflow-hidden cursor-pointer disabled:cursor-not-allowed transition-all`}>
+        <button {...commonProps} className={`flex ${buttonColorOptions[themeClass]} ${radiusOptions[radiusClass]} size-12 shadow-lg font-semibold overflow-hidden cursor-pointer disabled:cursor-not-allowed transition-all`}>
             {
                 props.children
             }

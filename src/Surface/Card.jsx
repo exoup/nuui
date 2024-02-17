@@ -1,12 +1,12 @@
-import { cardColorOptions, cardTextOptions, radiusOptions } from "../util/classOptions.js";
+import { surfaceColorOptions, textOptions, radiusOptions } from "../util/classOptions.js";
 import { useTheme } from "../Context/ThemeContext.jsx";
 import { twMerge } from "tailwind-merge";
 
-export default function Card({ ref, colorClass = useTheme(), radiusClass = 'round', className, children }) {
+export default function Card({ ref, themeClass = useTheme(), radiusClass = 'round', className, children }) {
     return (
         <article ref={ref} className={twMerge(
             'h-auto w-96 overflow-hidden shadow',
-            cardColorOptions[colorClass],
+            surfaceColorOptions[themeClass],
             radiusOptions[radiusClass],
             className
         )}>
@@ -32,7 +32,7 @@ export const Content = (props) => {
     return (
         <div className={twMerge(
             'm-4 font-medium',
-            cardTextOptions[textClass],
+            textOptions[textClass],
             className
         )}>
             {children}
@@ -45,9 +45,8 @@ export const Title = (props) => {
     return (
         <h2 className={twMerge(
             'text-2xl font-semibold mb-2',
-            'text-gray-900 dark:text-white',
             className
-        )}> 
+        )}>
             {children}
         </h2>
     )
@@ -56,7 +55,7 @@ export const Title = (props) => {
 export const Section = ({ sections, className }) => {
     return (
         <ul className={twMerge(
-            'divide-y divide-gray-200',
+            'divide-y divide-inherit',
             className
         )}>
             {

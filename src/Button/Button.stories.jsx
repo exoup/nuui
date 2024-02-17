@@ -24,7 +24,7 @@ export default {
         onClick: {
             action: "clicked"
         },
-        colorClass: {
+        themeClass: {
             defaultValue: 'primary',
             options: ['primary', 'secondary', 'tertiary', 'success', 'neutral'],
             control: { type: 'radio' }
