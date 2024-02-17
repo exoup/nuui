@@ -1,28 +1,19 @@
 import { useState, Children, isValidElement, cloneElement } from "react";
-import { radiusOptions, cardColorOptions } from "../util/classOptions";
+import { radiusOptions, surfaceColorOptions, childSurfaceColorOptions, textOptions } from "../util/classOptions";
 import { useTheme } from "../Context/ThemeContext.jsx";
 import { twMerge, twJoin } from "tailwind-merge";
 
-export default function Accordion({ colorClass = useTheme(), radiusClass = 'round', className, children, onChange = null, initialExpanded = [], accordion = true }) {
+export default function Accordion({ themeClass = useTheme(), radiusClass = 'round', className, children, onChange = null, initialExpanded = [], accordion = true, flush = false }) {
 
     const useDrawer = (initialExpanded) => {
         const [openDrawers, setOpenDrawers] = useState(initialExpanded);
-
-        const toggleDrawer = (index) => {
-            if (openDrawers.includes(index)) {
-                if (accordion) {
-                    setOpenDrawers([]);
-                } else {
-                    setOpenDrawers(openDrawers.filter((drawerIndex) => drawerIndex !== index));
-                }
+        const toggleDrawer = (index, accordion) => {
+            if (accordion) {
+                setOpenDrawers((prevState) => prevState.includes(index) ? [] : [index]);
             } else {
-                if (!accordion) {
-                    setOpenDrawers([...openDrawers, index]);
-                } else {
-                    setOpenDrawers([index]);
-                }
-            }
-        }
+                setOpenDrawers((prevState) => prevState.includes(index) ? prevState.filter((drawerIndex) => drawerIndex !== index) : [...prevState, index]);
+            };
+        };
         return [openDrawers, toggleDrawer];
     };
 
@@ -30,10 +21,11 @@ export default function Accordion({ colorClass = useTheme(), radiusClass = 'roun
 
     return (
         <div className={twMerge(
-            'h-auto overflow-hidden shadow',
-            '',
-            cardColorOptions[colorClass],
+            'h-auto overflow-hidden shadow divide-y divide-inherit',
+            surfaceColorOptions[themeClass],
             radiusOptions[radiusClass],
+            textOptions[themeClass],
+            flush ? 'border-none shadow-none rounded-none' : '',
             className
         )}>
             {
@@ -42,7 +34,7 @@ export default function Accordion({ colorClass = useTheme(), radiusClass = 'roun
                         return cloneElement(child, {
                             onChange,
                             expanded: openDrawers.includes(index),
-                            onClick: () => toggleDrawer(index)
+                            onClick: () => toggleDrawer(index, accordion)
                         })
                     }
                     return child;
@@ -52,7 +44,7 @@ export default function Accordion({ colorClass = useTheme(), radiusClass = 'roun
     )
 };
 
-export const Drawer = ({ title, children, className, onChange, expanded = false, onClick = () => { }, }) => {
+export const Drawer = ({ themeClass = useTheme(), title, children, className, onChange, expanded = false, onClick = () => { }, }) => {
 
     const handleClick = () => {
         if (onChange) {
@@ -62,18 +54,30 @@ export const Drawer = ({ title, children, className, onChange, expanded = false,
     }
 
     return (
-        <div className={twMerge(
-            "",
+        <div aria-expanded={expanded} className={twMerge(
+            "group/expandable font-medium",
             className
         )}>
-            <button className="w-full text-start" type="button" onClick={handleClick}>{title}</button>
-            <div className={twJoin('grid motion-safe:transition-all motion-safe:duration-500 motion-safe:ease-in-out',
-                // [Thanks for the black magic!](https://nemzes.net/posts/animating-height-auto/)
+            <button className="flex w-full items-center justify-between p-4" type="button" onClick={handleClick}>
+                {title}
+                <svg className="w-3 h-3 rotate-180 shrink-0 group-aria-expanded/expandable:rotate-0 motion-safe:transition-all" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                    <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5 5 1 1 5" />
+                </svg>
+            </button>
+            <div className={twJoin('grid motion-safe:transition-all motion-safe:duration-300 motion-safe:ease-in-out',
                 expanded ? 'grid-rows-[1fr]' : 'grid-rows-[0fr] invisible')}>
                 <div className="overflow-hidden">
-                    {children}
+                    <div className={twMerge(
+                        'p-4 pt-4 motion-safe:transition-all motion-safe:duration-300 motion-safe:ease-in-out',
+                        'group-aria-expanded/expandable:border-t border-t-0 shadow-inner',
+                        childSurfaceColorOptions[themeClass]
+                    )}>
+                        {children}
+                    </div>
                 </div>
             </div>
         </div>
     );
 };
+
+// [Thanks for the black magic!](https://nemzes.net/posts/animating-height-auto/)
