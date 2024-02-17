@@ -48,6 +48,50 @@
       "filePath": "src/Button/Button.stories.jsx",
       "namedExport": "ShapeButtonDefault",
       "meta": {}
+    },
+    "accordion--accordion": {
+      "name": "Accordion",
+      "levels": [
+        "Accordion"
+      ],
+      "locStart": 24,
+      "locEnd": 43,
+      "filePath": "src/Content/Accordion.stories.jsx",
+      "namedExport": "AccordionComponent",
+      "meta": {}
+    },
+    "card--card-with-hero": {
+      "name": "Card with hero",
+      "levels": [
+        "Card"
+      ],
+      "locStart": 30,
+      "locEnd": 40,
+      "filePath": "src/Surface/Card.stories.jsx",
+      "namedExport": "CardWithHero",
+      "meta": {}
+    },
+    "card--card-with-image": {
+      "name": "Card with image",
+      "levels": [
+        "Card"
+      ],
+      "locStart": 42,
+      "locEnd": 64,
+      "filePath": "src/Surface/Card.stories.jsx",
+      "namedExport": "CardWithImage",
+      "meta": {}
+    },
+    "card--card-with-section": {
+      "name": "Card with section",
+      "levels": [
+        "Card"
+      ],
+      "locStart": 66,
+      "locEnd": 78,
+      "filePath": "src/Surface/Card.stories.jsx",
+      "namedExport": "CardWithSection",
+      "meta": {}
     }
   }
 }
