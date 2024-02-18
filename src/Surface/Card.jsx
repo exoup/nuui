@@ -28,11 +28,11 @@ export const Hero = (props) => {
 };
 
 export const Content = (props) => {
-    const { className, children, textClass = useTheme() } = props;
+    const { className, children, themeClass = useTheme() } = props;
     return (
         <div className={twMerge(
             'm-4 font-medium',
-            textOptions[textClass],
+            textOptions[themeClass],
             className
         )}>
             {children}
