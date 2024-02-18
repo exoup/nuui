@@ -30,7 +30,7 @@ export default function Accordion({ themeClass = useTheme(), radiusClass = 'roun
         )}>
             {
                 Children.map(children, (child, index) => {
-                    if (isValidElement(child) && child.type.name === "Drawer") {
+                    if (isValidElement(child)) {
                         return cloneElement(child, {
                             onChange,
                             expanded: openDrawers.includes(index),
