@@ -32,6 +32,8 @@ export default function Accordion({ themeClass = useTheme(), radiusClass = 'roun
                 Children.map(children, (child, index) => {
                     if (isValidElement(child)) {
                         return cloneElement(child, {
+                            ariaId: `id-${index}`,
+                            ariaControls: `controls-${index}`,
                             onChange,
                             expanded: openDrawers.includes(index),
                             onClick: () => toggleDrawer(index, accordion)
@@ -44,7 +46,7 @@ export default function Accordion({ themeClass = useTheme(), radiusClass = 'roun
     )
 };
 
-export const Drawer = ({ themeClass = useTheme(), title, children, className, onChange, expanded = false, onClick = () => { }, }) => {
+export const Drawer = ({ themeClass = useTheme(), title, children, className, onChange, expanded = false, onClick = () => { }, ariaId, ariaControls }) => {
 
     const handleClick = () => {
         if (onChange) {
@@ -54,18 +56,29 @@ export const Drawer = ({ themeClass = useTheme(), title, children, className, on
     }
 
     return (
-        <div aria-expanded={expanded} className={twMerge(
-            "group/expandable font-medium",
+        <div className={twMerge(
+            "font-medium",
             className
         )}>
-            <button className="flex w-full items-center justify-between p-4" type="button" onClick={handleClick}>
-                {title}
+            <button
+                aria-expanded={expanded}
+                aria-controls={ariaControls}
+                id={ariaId}
+                role="button"
+                onClick={handleClick}
+                className="flex w-full items-center justify-between p-4 group/expandable">
+                <h3 role="heading">
+                    {title}
+                </h3>
                 <svg className="w-3 h-3 rotate-180 shrink-0 group-aria-expanded/expandable:rotate-0 motion-safe:transition-all" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                     <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5 5 1 1 5" />
                 </svg>
             </button>
-            <div className={twJoin('grid motion-safe:transition-all motion-safe:duration-300 motion-safe:ease-in-out',
-                expanded ? 'grid-rows-[1fr]' : 'grid-rows-[0fr] invisible')}>
+            <div
+                aria-labelledby={ariaId}
+                id={ariaControls}
+                className={twJoin('grid motion-safe:transition-all motion-safe:duration-300 motion-safe:ease-in-out',
+                    expanded ? 'grid-rows-[1fr]' : 'grid-rows-[0fr] invisible')}>
                 <div className="overflow-hidden">
                     <div className={twMerge(
                         'p-4 pt-4 motion-safe:transition-all motion-safe:duration-300 motion-safe:ease-in-out',
