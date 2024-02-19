@@ -31,7 +31,7 @@ export const Content = (props) => {
     const { className, children, themeClass = useTheme() } = props;
     return (
         <div className={twMerge(
-            'm-4 font-medium',
+            'm-4',
             textOptions[themeClass],
             className
         )}>
