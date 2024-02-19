@@ -1,0 +1,1 @@
+import{a as r,j as t}from"./index-6G1PSNBA.js";function o(e){return t.jsx(t.Fragment,{})}function d(e={}){const{wrapper:n}={...r(),...e.components};return n?t.jsx(n,{...e,children:t.jsx(o,{...e})}):o()}d.storyName="Readme";typeof window<"u"&&window.document&&window.document.createElement&&document.documentElement.setAttribute("data-storyloaded","");export{d as MDXContent};
