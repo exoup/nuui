@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 //Components
 import Card, { Content, Hero, Title, Section } from "./Card";
-import Accordion, { Drawer } from "../Content/Accordion";
+import Accordion, { Drawer } from "../Accordion/Accordion";
 import { Button } from '../Button/Button';
 import { LeadingButton } from "../Button/LeadingButton";
 import { Icon } from "../Icon/Icon";
