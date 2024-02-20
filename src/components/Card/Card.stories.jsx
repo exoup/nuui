@@ -3,7 +3,7 @@ import { Fragment } from "react";
 import Card, { Content, Hero, Title, Section } from "./Card";
 import Accordion, { Drawer } from "../Accordion/Accordion";
 import { Button } from '../Button/Button';
-import { LeadingButton } from "../Button/LeadingButton";
+import { IconButton } from "../Button/IconButton";
 import { Icon } from "../Icon/Icon";
 import { Follower } from "../Textual/Follower";
 import { ChevronDoubleRightIcon } from "@heroicons/react/24/outline";
@@ -49,7 +49,7 @@ export const CardWithImage = ({ themeClass, ...args }) => (
             <Title>This is a hero image card.</Title>
             <p className="mb-4">It uses a Hero with an img child and also has a LeadingButton using a div wrapper to position rightly.</p>
             <div className="flex justify-end">
-                <LeadingButton themeClass={themeClass}>
+                <IconButton themeClass={themeClass}>
                     <Follower>
                         Leading
                     </Follower>
@@ -58,7 +58,7 @@ export const CardWithImage = ({ themeClass, ...args }) => (
                             { name: "ChevronDoubleRightIcon", element: <ChevronDoubleRightIcon /> },
                         ]} />
                     }
-                </LeadingButton>
+                </IconButton>
             </div>
         </Content>
     </Card>

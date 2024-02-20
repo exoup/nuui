@@ -2,7 +2,7 @@ import { Fragment } from "react";
 //Components
 import { Button } from "./Button.jsx";
 import { PillButton } from "./PillButton.jsx";
-import { LeadingButton } from "./LeadingButton.jsx";
+import { IconButton } from "./IconButton.jsx";
 import { ShapeButton } from "./ShapeButton.jsx";
 import { Icon } from '../Icon/Icon.jsx';
 import { Follower } from "../Textual/Follower.jsx";
