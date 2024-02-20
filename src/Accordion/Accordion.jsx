@@ -1,5 +1,5 @@
 import { useState, Children, isValidElement, cloneElement } from "react";
-import { radiusOptions, surfaceColorOptions, childSurfaceColorOptions, textOptions } from "../util/classOptions";
+import { radiusOptions, surfaceColorOptions, childSurfaceColorOptions, textOptions } from "../util/classOptions.js";
 import { useTheme } from "../Context/ThemeContext.jsx";
 import { twMerge, twJoin } from "tailwind-merge";
 
@@ -57,7 +57,6 @@ export const Drawer = ({ themeClass = useTheme(), title, children, className, on
 
     return (
         <div className={twMerge(
-            "font-medium",
             className
         )}>
             <button
