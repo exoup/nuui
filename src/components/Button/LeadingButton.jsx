@@ -1,5 +1,5 @@
-import { buttonColorOptions, radiusOptions, sizeOptions } from "../util/classOptions.js";
-import { useTheme } from "../Context/ThemeContext.jsx";
+import { buttonColorOptions, radiusOptions, sizeOptions } from "../../context/classOptions.js";
+import { useTheme } from "../../context/ThemeContext.jsx";
 
 export const LeadingButton = (props) => {
     const themeColor = useTheme();

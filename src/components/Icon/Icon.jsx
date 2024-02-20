@@ -1,5 +1,4 @@
-import { cloneElement } from "react";
-import { loadingOptions } from "../util/classOptions";
+import { loadingOptions } from "../../context/classOptions";
 
 export const Icon = ({ icons, loading, loadingClass }) => {
     return (

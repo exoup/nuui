@@ -1,5 +1,5 @@
-import { surfaceColorOptions, textOptions, radiusOptions } from "../util/classOptions.js";
-import { useTheme } from "../Context/ThemeContext.jsx";
+import { surfaceColorOptions, textOptions, radiusOptions } from "../../context/classOptions.js";
+import { useTheme } from "../../context/ThemeContext.jsx";
 import { twMerge } from "tailwind-merge";
 
 export default function Card({ ref, themeClass = useTheme(), radiusClass = 'round', className, children }) {

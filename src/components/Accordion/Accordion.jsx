@@ -1,6 +1,6 @@
 import { useState, Children, isValidElement, cloneElement } from "react";
-import { radiusOptions, surfaceColorOptions, childSurfaceColorOptions, textOptions } from "../util/classOptions.js";
-import { useTheme } from "../Context/ThemeContext.jsx";
+import { radiusOptions, surfaceColorOptions, childSurfaceColorOptions, textOptions } from "../../context/classOptions";
+import { useTheme } from "../../context/ThemeContext.jsx";
 import { twMerge, twJoin } from "tailwind-merge";
 
 export default function Accordion({ themeClass = useTheme(), radiusClass = 'round', className, children, onChange = null, initialExpanded = [], accordion = true, flush = false }) {

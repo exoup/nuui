@@ -1,6 +1,6 @@
-import { buttonColorOptions, radiusOptions, sizeOptions } from "../util/classOptions";
+import { buttonColorOptions, radiusOptions, sizeOptions } from "../../context/classOptions";
+import { useTheme } from "../../context/ThemeContext.jsx";
 import { LoadingIcon } from "../Icon/Icon.jsx";
-import { useTheme } from "../Context/ThemeContext.jsx";
 
 export const PillButton = (props) => {
     const themeColor = useTheme();

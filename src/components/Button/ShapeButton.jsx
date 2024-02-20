@@ -1,5 +1,5 @@
-import { buttonColorOptions, radiusOptions } from "../util/classOptions.js";
-import { useTheme } from "../Context/ThemeContext.jsx";
+import { buttonColorOptions, radiusOptions } from "../../context/classOptions.js";
+import { useTheme } from "../../context/ThemeContext.jsx";
 
 export const ShapeButton = (props) => {
     const themeColor = useTheme();

@@ -7,7 +7,7 @@ import { LeadingButton } from "../Button/LeadingButton";
 import { Icon } from "../Icon/Icon";
 import { Follower } from "../Textual/Follower";
 import { ChevronDoubleRightIcon } from "@heroicons/react/24/outline";
-import "../util/styles.css";
+import "../../resources/styles.css";
 
 export default {
     args: {

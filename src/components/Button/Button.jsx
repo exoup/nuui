@@ -1,6 +1,6 @@
-import { buttonColorOptions, radiusOptions, sizeOptions } from "../util/classOptions";
+import { buttonColorOptions, radiusOptions, sizeOptions } from "../../context/classOptions";
 import { LoadingIcon } from "../Icon/Icon.jsx";
-import { useTheme } from "../Context/ThemeContext.jsx";
+import { useTheme } from "../../context/ThemeContext.jsx";
 
 export const Button = (props) => {
     const themeColor = useTheme();
