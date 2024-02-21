@@ -11,7 +11,7 @@ import { ArrowUpIcon, CheckIcon } from '@heroicons/react/24/outline'
 
 export default {
     args: {
-        children: 'Default',
+        children: 'Button',
         disabled: false,
         loading: false,
     },
@@ -62,9 +62,9 @@ PillButtonDefault.args = {
 };
 PillButtonDefault.storyName = 'Pill Button';
 
-export const LeadingButtonDefault = ({ children, loading, loadingClass, ...args }) => {
+export const IconButtonDefault = ({ children, loading, loadingClass, ...args }) => {
     return (
-        <LeadingButton {...args}>
+        <IconButton {...args}>
             {
                 <Icon loading={loading} loadingClass={loadingClass} icons={[
                     { name: "CheckIcon", element: <CheckIcon /> },
@@ -73,10 +73,10 @@ export const LeadingButtonDefault = ({ children, loading, loadingClass, ...args 
             <Follower>
                 {children}
             </Follower>
-        </LeadingButton>
+        </IconButton>
     )
 };
-LeadingButtonDefault.storyName = 'Leading Button';
+IconButtonDefault.storyName = 'Icon Button';
 
 export const ShapeButtonDefault = ({ loading, loadingClass, ...args }) => {
     return (
