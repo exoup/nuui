@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import "tailwindcss/tailwind.css";
-import { ThemeProvider } from "../src/Context/ThemeContext";
+import { ThemeProvider } from "../src/context/ThemeContext";
 
 export const Provider = ({ children, globalState }) => {
     useEffect(() => {
