@@ -18,14 +18,14 @@ export const childSurfaceColorOptions = {
     secondary: 'bg-white border-t-light/35 dark:bg-gray-800/65 dark:border-t-gray-900/65',
     tertiary: 'bg-gray-50 border-t-gray-200 dark:bg-neutral-900 dark:border-t-neutral-950/50 dark:shadow-neutral-800/10',
     neutral: 'bg-white border-t-neutral-200 dark:bg-neutral-800 dark:border-t-neutral-900/50 dark:shadow-neutral-900/10'
-}
+};
 
 export const textOptions = {
     primary: 'text-gray-700 dark:text-gray-300',
     secondary: 'text-secondary-text dark:text-secondary-50',
     tertiary: 'text-tertiary-text dark:text-white',
     neutral: 'text-zinc-800 dark:text-neutral-50'
-}
+};
 
 export const radiusOptions = {
     round: 'rounded-md',
@@ -39,6 +39,28 @@ export const sizeOptions = {
     wide: 'min-w-80',
     full: 'w-full min-w-full'
 };
+export const avatarSurfaceColorOptions = {
+    primary: 'bg-primary hover:bg-primary-700',
+    secondary: 'bg-secondary-200 border-2 border-light hover:bg-secondary-100 dark:bg-gray-900 dark:hover:bg-slate-800 dark:border-dark',
+    tertiary: 'bg-tertiary-500 hover:bg-tertiary-600 dark:bg-tertiary-text dark:border-2 dark:border-tertiary dark:hover:border-tertiary-300',
+    neutral: 'bg-white border-2 border-neutral-700 hover:bg-neutral-50 dark:bg-neutral-800 dark:hover:bg-neutral-900 dark:border-neutral-800'
+};
+
+export const avatarSizeOptions = {
+    sm: 'size-8 text-sm',
+    md: 'size-10 text-base',
+    lg: 'size-12 text-lg',
+    xl: 'size-14 text-xl',
+    '2xl': 'size-16 text-2xl',
+    '4xl': 'size-24 text-4xl',
+};
+
+export const avatarTextOptions = {
+    primary: 'text-white dark:text-white',
+    secondary: 'text-secondary-text dark:text-secondary-50',
+    tertiary: 'text-white dark:text-tertiary dark:hover:text-tertiary-300',
+    neutral: 'text-neutral-700 dark:text-white'
+}
 
 export const loadingOptions = {
     "three-quarter": 'inline-block after:content-[" "] after:block after:size-6 after:border-white after:border-b-transparent after:border-[4px] after:rounded-[50%] after:border-solid after:animate-spin',
