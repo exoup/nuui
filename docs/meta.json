@@ -5,50 +5,6 @@
     "version": 1
   },
   "stories": {
-    "button--default": {
-      "name": "Default",
-      "levels": [
-        "Button"
-      ],
-      "locStart": 50,
-      "locEnd": 52,
-      "filePath": "src/Button/Button.stories.jsx",
-      "namedExport": "Default",
-      "meta": {}
-    },
-    "button--leading-button": {
-      "name": "Leading button",
-      "levels": [
-        "Button"
-      ],
-      "locStart": 65,
-      "locEnd": 78,
-      "filePath": "src/Button/Button.stories.jsx",
-      "namedExport": "LeadingButtonDefault",
-      "meta": {}
-    },
-    "button--pill-button": {
-      "name": "Pill button",
-      "levels": [
-        "Button"
-      ],
-      "locStart": 54,
-      "locEnd": 56,
-      "filePath": "src/Button/Button.stories.jsx",
-      "namedExport": "PillButtonDefault",
-      "meta": {}
-    },
-    "button--shape-button": {
-      "name": "Shape button",
-      "levels": [
-        "Button"
-      ],
-      "locStart": 81,
-      "locEnd": 91,
-      "filePath": "src/Button/Button.stories.jsx",
-      "namedExport": "ShapeButtonDefault",
-      "meta": {}
-    },
     "accordion--accordion": {
       "name": "Accordion",
       "levels": [
@@ -56,7 +12,7 @@
       ],
       "locStart": 24,
       "locEnd": 41,
-      "filePath": "src/Content/Accordion.stories.jsx",
+      "filePath": "src/components/Accordion/Accordion.stories.jsx",
       "namedExport": "AccordionComponent",
       "meta": {}
     },
@@ -67,8 +23,74 @@
       ],
       "locStart": 45,
       "locEnd": 64,
-      "filePath": "src/Content/Accordion.stories.jsx",
+      "filePath": "src/components/Accordion/Accordion.stories.jsx",
       "namedExport": "NonAccordionComponent",
+      "meta": {}
+    },
+    "avatar--avatar": {
+      "name": "Avatar",
+      "levels": [
+        "Avatar"
+      ],
+      "locStart": 32,
+      "locEnd": 42,
+      "filePath": "src/components/Avatar/Avatar.stories.jsx",
+      "namedExport": "AvatarStory",
+      "meta": {}
+    },
+    "avatar--avatar-with-text": {
+      "name": "Avatar with text",
+      "levels": [
+        "Avatar"
+      ],
+      "locStart": 46,
+      "locEnd": 62,
+      "filePath": "src/components/Avatar/Avatar.stories.jsx",
+      "namedExport": "AvatarWithTextStory",
+      "meta": {}
+    },
+    "button--default": {
+      "name": "Default",
+      "levels": [
+        "Button"
+      ],
+      "locStart": 50,
+      "locEnd": 52,
+      "filePath": "src/components/Button/Button.stories.jsx",
+      "namedExport": "Default",
+      "meta": {}
+    },
+    "button--icon-button": {
+      "name": "Icon button",
+      "levels": [
+        "Button"
+      ],
+      "locStart": 65,
+      "locEnd": 78,
+      "filePath": "src/components/Button/Button.stories.jsx",
+      "namedExport": "IconButtonDefault",
+      "meta": {}
+    },
+    "button--pill-button": {
+      "name": "Pill button",
+      "levels": [
+        "Button"
+      ],
+      "locStart": 54,
+      "locEnd": 56,
+      "filePath": "src/components/Button/Button.stories.jsx",
+      "namedExport": "PillButtonDefault",
+      "meta": {}
+    },
+    "button--shape-button": {
+      "name": "Shape button",
+      "levels": [
+        "Button"
+      ],
+      "locStart": 81,
+      "locEnd": 91,
+      "filePath": "src/components/Button/Button.stories.jsx",
+      "namedExport": "ShapeButtonDefault",
       "meta": {}
     },
     "card--card-with-accordion": {
@@ -78,7 +100,7 @@
       ],
       "locStart": 81,
       "locEnd": 101,
-      "filePath": "src/Surface/Card.stories.jsx",
+      "filePath": "src/components/Card/Card.stories.jsx",
       "namedExport": "CardWithAccordion",
       "meta": {}
     },
@@ -89,7 +111,7 @@
       ],
       "locStart": 31,
       "locEnd": 41,
-      "filePath": "src/Surface/Card.stories.jsx",
+      "filePath": "src/components/Card/Card.stories.jsx",
       "namedExport": "CardWithHero",
       "meta": {}
     },
@@ -100,7 +122,7 @@
       ],
       "locStart": 43,
       "locEnd": 65,
-      "filePath": "src/Surface/Card.stories.jsx",
+      "filePath": "src/components/Card/Card.stories.jsx",
       "namedExport": "CardWithImage",
       "meta": {}
     },
@@ -111,19 +133,30 @@
       ],
       "locStart": 67,
       "locEnd": 79,
-      "filePath": "src/Surface/Card.stories.jsx",
+      "filePath": "src/components/Card/Card.stories.jsx",
       "namedExport": "CardWithSection",
       "meta": {}
     },
-    "docs--readme": {
-      "name": "Readme",
+    "menu--menu": {
+      "name": "Menu",
       "levels": [
-        "Docs"
+        "Menu"
       ],
-      "locStart": 6,
-      "locEnd": 14,
-      "filePath": "src/docs/Docs.stories.mdx",
-      "namedExport": "MDXContent",
+      "locStart": 35,
+      "locEnd": 56,
+      "filePath": "src/components/Menu/Menu.stories.jsx",
+      "namedExport": "MenuStory",
+      "meta": {}
+    },
+    "menu--profile-menu": {
+      "name": "Profile menu",
+      "levels": [
+        "Menu"
+      ],
+      "locStart": 60,
+      "locEnd": 85,
+      "filePath": "src/components/Menu/Menu.stories.jsx",
+      "namedExport": "MenuProfile",
       "meta": {}
     }
   }
