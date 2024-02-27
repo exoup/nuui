@@ -2,12 +2,13 @@ import { textOptions } from "../../context/classOptions.js";
 import { useTheme } from "../../context/ThemeContext.jsx";
 import { twMerge } from "tailwind-merge";
 
-export default function AvatarWithText({ children, className }) {
+export default function AvatarWithText({ children, className, onClick = () => { } }) {
     return (
         <div className={twMerge(
-            "flex items-center gap-4",
+            "flex items-center max-w-max gap-3",
             className
-        )}>
+        )}
+            onClick={onClick}>
             {children}
         </div>
     );
