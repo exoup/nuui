@@ -1,8 +1,8 @@
 export const buttonColorOptions = {
     primary: 'bg-primary text-primary-text hover:bg-primary-700',
-    secondary: 'bg-secondary-200 text-secondary-text hover:bg-secondary-100 ring-1 ring-inset ring-light dark:bg-secondary-text dark:text-secondary-200 dark:hover:bg-slate-800 dark:ring-dark',
-    tertiary: 'bg-tertiary-500 text-white hover:bg-tertiary-600 dark:bg-tertiary-text dark:text-tertiary dark:ring-1 dark:ring-tertiary dark:hover:text-tertiary-300 dark:hover:ring-tertiary-300',
-    neutral: 'bg-white text-neutral-700 ring-1 ring-neutral-700 hover:bg-neutral-50 dark:bg-neutral-800 dark:hover:bg-neutral-900 dark:ring-neutral-800 dark:text-white',
+    secondary: 'bg-secondary-200 text-secondary-text hover:bg-secondary-100 border border-light dark:bg-secondary-text dark:text-secondary-200 dark:hover:bg-slate-800 dark:border-dark',
+    tertiary: 'bg-tertiary-500 text-white hover:bg-tertiary-600 dark:bg-tertiary-text dark:text-tertiary dark:border dark:border-tertiary dark:hover:text-tertiary-300 dark:hover:border-tertiary-300',
+    neutral: 'bg-white text-neutral-700 border border-neutral-700 hover:bg-neutral-50 dark:bg-neutral-800 dark:hover:bg-neutral-900 dark:border-neutral-800 dark:text-white',
     success: 'bg-success text-success-text hover:bg-[#DCFCE7]',
 };
 
