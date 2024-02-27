@@ -12,7 +12,7 @@ export const Provider = ({ children, globalState }) => {
     }, [globalState.theme]);
     return (
         <ThemeProvider themeColor="tertiary">
-            <div className="p-4">{children}</div>
+            {children}
         </ThemeProvider>
     )
 };
