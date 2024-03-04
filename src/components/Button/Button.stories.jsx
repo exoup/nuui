@@ -1,9 +1,7 @@
 import { Fragment } from "react";
 //Components
-import Button from "./Button.jsx";
-import { PillButton } from "./PillButton.jsx";
-import { IconButton } from "./IconButton.jsx";
-import { ShapeButton } from "./ShapeButton.jsx";
+import Button from "./Button.jsx"; 2
+import { IconButton } from "./discard/IconButton.jsx";
 import { Icon } from '../Icon/Icon.jsx';
 import { Follower } from "../Textual/Follower.jsx";
 //Icons
@@ -30,7 +28,7 @@ export default {
         },
         size: {
             defaultValue: 'normal',
-            options: ['responsive', 'normal', 'wide', 'full'],
+            options: ['normal', 'wide', 'full', 'reset'],
             control: { type: 'inline-radio' }
         },
         variant: {
@@ -39,58 +37,45 @@ export default {
             control: { type: 'inline-radio' }
         }
     }
-}
+};
 
 export const Default = ({ children, ...args }) => (
     <Button {...args}>{children}</Button>
 );
 
 export const PillButtonDefault = ({ children, ...args }) => (
-    <PillButton {...args}>{children}</PillButton>
+    <Button {...args}>{children}</Button>
 );
 
 PillButtonDefault.args = {
     children: 'Pill Button',
-    sizeClass: 'wide',
-    radiusClass: 'full'
+    size: 'wide',
+    radius: 'full'
 };
 PillButtonDefault.storyName = 'Pill Button';
 
-export const IconButtonDefault = ({ children, loading, loadingClass, ...args }) => {
-    return (
-        <IconButton {...args}>
-            {
-                <Icon loading={loading} loadingClass={loadingClass} icons={[
-                    { name: "CheckIcon", element: <CheckIcon /> },
-                ]} />
-            }
-            <Follower>
-                {children}
-            </Follower>
-        </IconButton>
-    )
+export const ShapeButtonDefault = ({ ...args }) => (
+    <Button {...args}>
+        <CheckIcon className="size-14 p-2" />
+    </Button>
+);
+
+ShapeButtonDefault.args = {
+    radius: 'full',
+    size: 'reset'
+};
+ShapeButtonDefault.storyName = 'Shape Button';
+
+export const IconButtonDefault = ({ children, ...args }) => (
+    <Button {...args} className={'flex gap-2 place-content-center'}>
+        <CheckIcon className="size-6" />
+        {children}
+    </Button>
+);
+
+IconButtonDefault.args = {
+    children: 'Icon Button'
 };
 IconButtonDefault.storyName = 'Icon Button';
 
-export const ShapeButtonDefault = ({ loading, loadingClass, ...args }) => {
-    return (
-        <ShapeButton {...args}>
-            {
-                <Icon loading={loading} loadingClass={loadingClass} icons={[
-                    { name: "ArrowUpIcon", element: <ArrowUpIcon /> }
-                ]} />
-            }
-        </ShapeButton>
-    )
-};
-ShapeButtonDefault.args = {
-    radiusClass: 'full',
-};
-ShapeButtonDefault.argTypes = {
-    sizeClass: {
-        defaultValue: '',
-        options: [],
-        control: { type: 'radio' }
-    },
-};
-ShapeButtonDefault.storyName = 'Shape Button';
+// TODO: SplitButton to be two buttons in a button group.

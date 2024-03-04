@@ -10,7 +10,7 @@ export const button = {
     },
     styles: {
         initial: {
-            base: 'py-2.5 px-5 max-h-11 shadow-md font-semibold text-center cursor-pointer',
+            base: 'shadow-md font-semibold text-center cursor-pointer align-middle',
             disabled: 'disabled:shadow-none disabled:pointer-events-none',
             transition: 'motion-safe:transition-all',
         },
@@ -20,10 +20,10 @@ export const button = {
             full: 'rounded-full'
         },
         sizes: {
-            responsive: 'flex-1 flex-shrink-0',
-            normal: 'min-w-24',
-            wide: 'min-w-80',
-            full: 'w-full min-w-full'
+            reset: '',
+            normal: 'px-6 py-2.5 ',
+            wide: 'px-24 py-2.5 ',
+            full: 'block w-full py-2.5'
         },
         variants: {
             solid: FilledOptions,
