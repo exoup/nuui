@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 //Components
-import { Button } from "./Button.jsx";
+import Button from "./Button.jsx";
 import { PillButton } from "./PillButton.jsx";
 import { IconButton } from "./IconButton.jsx";
 import { ShapeButton } from "./ShapeButton.jsx";
@@ -13,36 +13,30 @@ export default {
     args: {
         children: 'Button',
         disabled: false,
-        loading: false,
     },
     argTypes: {
-        type: {
-            defaultValue: 'button',
-            options: ['button', 'submit', 'reset'],
-            control: { type: 'inline-radio' },
-        },
         onClick: {
             action: "clicked"
         },
-        themeClass: {
+        color: {
             defaultValue: 'primary',
-            options: ['primary', 'secondary', 'tertiary', 'success', 'neutral'],
+            options: ['primary', 'secondary', 'tertiary', 'neutral'],
             control: { type: 'radio' }
         },
-        radiusClass: {
+        radius: {
             defaultValue: 'round',
             options: ['round', 'sharp', 'full'],
-            control: { type: 'radio' }
+            control: { type: 'inline-radio' }
         },
-        sizeClass: {
+        size: {
             defaultValue: 'normal',
             options: ['responsive', 'normal', 'wide', 'full'],
-            control: { type: 'radio' }
+            control: { type: 'inline-radio' }
         },
-        loadingClass: {
-            defaultValue: 'three-quarter',
-            options: ['three-quarter', 'three-quarter-dark'],
-            control: { type: 'radio' }
+        variant: {
+            defaultValue: 'solid',
+            options: ['solid', 'outline', 'ghost'],
+            control: { type: 'inline-radio' }
         }
     }
 }
