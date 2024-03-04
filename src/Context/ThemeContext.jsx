@@ -1,16 +1,22 @@
 import { createContext, useContext } from 'react';
+import theme from '../theme';
 
-const ThemeContext = createContext('primary');
+const ThemeContext = createContext(theme);
 
-export const ThemeProvider = ({ children, themeColor = useContext(ThemeContext) }) => {
+const ThemeProvider = ({ themeObjects = theme, themeColor, children }) => {
+    const mergedTheme = {
+        ...themeObjects,
+        themeColor: themeColor
+    };
+
     return (
-        <ThemeContext.Provider value={themeColor}>
+        <ThemeContext.Provider value={mergedTheme}>
             {children}
         </ThemeContext.Provider>
     );
 };
 
-export const useTheme = () => {
+const useTheme = () => {
     const context = useContext(ThemeContext);
 
     if (context === undefined) {
@@ -19,3 +25,5 @@ export const useTheme = () => {
 
     return context
 };
+
+export { ThemeContext, ThemeProvider, useTheme }
