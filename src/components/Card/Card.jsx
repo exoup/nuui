@@ -1,70 +1,134 @@
-import { surfaceColorOptions, textOptions, radiusOptions } from "../../context/classOptions.js";
-import { useTheme } from "../../context/ThemeContext.jsx";
-import { twMerge } from "tailwind-merge";
+import { useTheme } from "../../context/ThemeContext";
+import { twJoin, twMerge } from "tailwind-merge";
+import lookupOptions from "../../util/lookupOptions";
+import mapObjectToString from "../../util/mapObjectToString";
 
-export default function Card({ ref, themeClass = useTheme(), radiusClass = 'round', className, children }) {
+const Card = ({ color, radius, variant, className, children, ...args }) => {
+    const { card, themeColor } = useTheme();
+    const { defaultOptions, styles } = card;
+    const { initial, radii, variants } = styles;
+
+    const resolvedColor = color || themeColor || defaultOptions.color;
+    const resolvedRadius = radius || defaultOptions.radius;
+    const resolvedVariant = variant || defaultOptions.variant;
+
+    const initialClasses = mapObjectToString(initial);
+    const lookupClasses = twJoin(
+        lookupOptions(radii, resolvedRadius, defaultOptions.radius),
+    );
+    const variantClasses = mapObjectToString(
+        lookupOptions(variants, resolvedVariant, defaultOptions.variant)[resolvedColor]
+    );
+
+    const classes = twMerge(
+        ...initialClasses,
+        lookupClasses,
+        ...variantClasses,
+        className,
+    );
+
     return (
-        <article ref={ref} className={twMerge(
-            'h-auto w-96 overflow-hidden shadow',
-            surfaceColorOptions[themeClass],
-            radiusOptions[radiusClass],
-            className
-        )}>
+        <article
+            {...args}
+            className={classes}>
             {children}
         </article>
     )
-}
+};
 
-export const Hero = (props) => {
-    const { className, children } = props;
+export const Hero = ({ className, children, ...args }) => {
+    const { card } = useTheme();
+    const { styles } = card.hero;
+    const { initial } = styles;
+
+    const initialClasses = mapObjectToString(initial);
+
+    const classes = twMerge(
+        ...initialClasses,
+        className,
+    );
+
     return (
-        <div className={twMerge(
-            'h-auto w-full max-w-full',
-            className
-        )}>
+        <div
+            {...args}
+            className={classes}>
             {children}
         </div>
     )
 };
 
-export const Content = (props) => {
-    const { className, children, themeClass = useTheme() } = props;
+export const Content = ({ variant, className, children, ...args }) => {
+    const { card, themeColor } = useTheme();
+    const { defaultOptions, styles } = card.content;
+    const { initial, variants } = styles;
+
+    const resolvedVariant = variant || themeColor || defaultOptions.variant;
+
+    const initialClasses = mapObjectToString(initial);
+    const variantClasses = mapObjectToString(
+        lookupOptions(variants, resolvedVariant, defaultOptions.variant)
+    );
+
+    const classes = twMerge(
+        ...initialClasses,
+        variantClasses,
+        className,
+    );
+
     return (
-        <div className={twMerge(
-            'm-4',
-            textOptions[themeClass],
-            className
-        )}>
+        <div
+            {...args}
+            className={classes}>
             {children}
         </div>
     )
 };
 
-export const Title = (props) => {
-    const { className, children } = props;
+export const Title = ({ className, children, ...args }) => {
+    const { card } = useTheme();
+    const { styles } = card.title;
+    const { initial } = styles;
+
+    const initialClasses = mapObjectToString(initial);
+
+    const classes = twMerge(
+        ...initialClasses,
+        className,
+    );
+
     return (
-        <h2 className={twMerge(
-            'text-2xl font-semibold mb-2',
-            className
-        )}>
+        <h2
+            {...args}
+            className={classes}>
             {children}
         </h2>
     )
 };
 
 export const Section = ({ sections, className }) => {
+    const { card } = useTheme();
+    const { styles } = card.section;
+    const { initial, section } = styles;
+
+    const initialClasses = mapObjectToString(initial);
+    const sectionClassses = mapObjectToString(section);
+
+    const classes = twMerge(
+        ...initialClasses,
+        className,
+    );
+
     return (
-        <ul className={twMerge(
-            'divide-y divide-inherit',
-            className
-        )}>
+        <ul className={classes}>
             {
                 sections.map(section => (
-                    <li className="py-3 last-of-type:pb-0" key={section.name}>
+                    <li className={sectionClassses} key={section.name}>
                         {section.element}
                     </li>
                 ))
             }
         </ul>
-    );
+    )
 };
+
+export default Card;
