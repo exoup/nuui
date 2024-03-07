@@ -10,7 +10,7 @@ const FilledOptions = {
         base: {
             initial: 'border',
             light: 'bg-secondary-50 border-light',
-            dark: 'dark:bg-gray-900 dark:border-dark'
+            dark: 'dark:bg-zinc-900 dark:border-zinc-800'
         }
     },
     tertiary: {
