@@ -1,60 +1,41 @@
-import Avatar from "./Avatar";
-import AvatarWithText, { Content, Title, Subtitle } from "./AvatarWithText";
+import Avatar, { AvatarWithText, Content, Title, Subtitle } from "./Avatar";
 
 export default {
     args: {
-        themeClass: "primary",
-        radiusClass: "full",
         src: "https://images.unsplash.com/photo-1552320764-9fc870798a3f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&w=512&h=512",
         alt: "avatar",
-        name: "Just Yogurt",
+        name: "John Yogurt",
         flush: false
     },
     argTypes: {
-        themeClass: {
+        color: {
             defaultValue: 'primary',
             options: ['primary', 'secondary', 'tertiary', 'neutral'],
             control: { type: 'inline-radio' }
         },
-        radiusClass: {
-            defaultValue: 'round',
-            options: ['full', 'round', 'square'],
+        radius: {
+            defaultValue: 'full',
+            options: ['full', 'round', 'sharp'],
             control: { type: 'inline-radio' }
         },
-        sizeClass: {
-            defaultValue: 'lg',
+        size: {
+            defaultValue: '4xl',
             options: ['sm', 'md', 'lg', 'xl', '2xl', '4xl'],
             control: { type: 'inline-radio' }
         }
     }
 };
 
-export const AvatarStory = ({ themeClass, radiusClass, sizeClass, src, alt, name, flush, ...args }) => (
-    <Avatar {...args}
-        themeClass={themeClass}
-        radiusClass={radiusClass}
-        sizeClass={sizeClass}
-        src={src}
-        alt={alt}
-        name={name}
-        flush={flush}
-    />
+export const AvatarStory = ({ ...args }) => (
+    <Avatar {...args} />
 );
 
 AvatarStory.storyName = "Avatar";
 
-export const AvatarWithTextStory = ({ themeClass, radiusClass, sizeClass, src, alt, name, flush, subtitle, ...args }) => (
+export const AvatarWithTextStory = ({ name, subtitle, color, ...args }) => (
     <AvatarWithText>
-        <Avatar {...args}
-            themeClass={themeClass}
-            radiusClass={radiusClass}
-            sizeClass={sizeClass}
-            src={src}
-            alt={alt}
-            name={name}
-            flush={flush}
-        />
-        <Content className="max-w-56" themeClass={themeClass}>
+        <Avatar {...args} name={name} color={color} />
+        <Content className="max-w-56" typography={color}>
             <Title>{name}</Title>
             <Subtitle>{subtitle}</Subtitle>
         </Content>
@@ -63,5 +44,6 @@ export const AvatarWithTextStory = ({ themeClass, radiusClass, sizeClass, src, a
 
 AvatarWithTextStory.storyName = "AvatarWithText";
 AvatarWithTextStory.args = {
-    subtitle: "Grocery Store"
+    subtitle: "Grocery Store",
+    size: "xl"
 }

@@ -1,7 +1,8 @@
 import { useEffect, useState, useRef } from "react";
-import { avatarSizeOptions, avatarSurfaceColorOptions, avatarTextOptions, radiusOptions } from "../../context/classOptions.js";
-import { twMerge } from "tailwind-merge";
-import { useTheme } from "../../context/ThemeContext.jsx";
+import { useTheme } from "../../context/ThemeContext";
+import { twJoin, twMerge } from "tailwind-merge";
+import lookupOptions from "../../util/lookupOptions";
+import mapObjectToString from "../../util/mapObjectToString";
 
 const getInitials = (name) => {
     const names = name.split(' ');
@@ -12,7 +13,8 @@ const getInitials = (name) => {
     return initials;
 };
 
-export default function Avatar({ name, src, alt, className, themeClass = useTheme(), radiusClass = 'full', sizeClass = 'lg', flush, ...props }) {
+const Avatar = ({ name, src, alt, flush = false, color, radius, size, variant, className, ...args }) => {
+
     const [imageLoaded, setImageLoaded] = useState(false);
     const avatarImageRef = useRef(null);
 
@@ -29,7 +31,7 @@ export default function Avatar({ name, src, alt, className, themeClass = useThem
                     setImageLoaded(false);
                 };
             }
-        }
+        };
 
         return () => {
             if (avatarImageRef.current) {
@@ -39,23 +41,134 @@ export default function Avatar({ name, src, alt, className, themeClass = useThem
         };
     }, [src]);
 
+    const { avatar, themeColor } = useTheme();
+    const { defaultOptions, styles } = avatar;
+    const { initial, image, radii, sizes, variants } = styles;
+
+    const resolvedColor = color || themeColor || defaultOptions.color;
+    const resolvedRadius = radius || defaultOptions.radius;
+    const resolvedSize = size || defaultOptions.size;
+    const resolvedVariant = variant || defaultOptions.variant;
+
+    const initialClasses = mapObjectToString(initial);
+    const imageClasses = mapObjectToString(image);
+    const lookupClasses = twJoin(
+        lookupOptions(radii, resolvedRadius, defaultOptions.radius),
+        lookupOptions(sizes, resolvedSize, defaultOptions.size),
+    );
+    const variantClasses = mapObjectToString(
+        lookupOptions(variants, resolvedVariant, defaultOptions.variant)[resolvedColor],
+        flush && variants.reset
+    );
+
+    const classes = twMerge(
+        ...initialClasses,
+        lookupClasses,
+        ...variantClasses,
+        className,
+    );
+
     return (
         <div
-            className={twMerge(
-                "overflow-hidden",
-                avatarSizeOptions[sizeClass],
-                avatarSurfaceColorOptions[themeClass],
-                avatarTextOptions[themeClass],
-                radiusOptions[radiusClass],
-                flush ? 'bg-transparent dark:bg-transparent border-none hover:bg-transparent dark:hover:bg-transparent text-gray-600 dark:text-white' : '',
-                className
-            )}
-            {...props}
-        >
+            {...args}
+            className={classes}>
             <img ref={avatarImageRef} hidden={!imageLoaded} className="size-full" alt={alt || name} />
-            {!imageLoaded && <div className="flex items-center justify-center size-full font-bold">
+            {!imageLoaded && <div className={imageClasses}>
                 {name ? getInitials(name) : 'U'}
             </div>}
         </div>
     )
 };
+
+export const AvatarWithText = ({ className, children, onClick = () => { }, ...args }) => {
+    const { avatar } = useTheme();
+    const { styles } = avatar.withtext;
+    const { initial } = styles;
+
+    const initialClasses = mapObjectToString(initial);
+
+    const classes = twMerge(
+        ...initialClasses,
+        className,
+    );
+
+    return (
+        <div
+            {...args}
+            onClick={onClick}
+            className={classes}>
+            {children}
+        </div>
+    )
+};
+
+export const Content = ({ typography, className, children, ...args }) => {
+    const { avatar, typography: typographyOptions, themeColor } = useTheme();
+    const { styles } = avatar.content;
+    const { initial } = styles;
+
+    const resolvedTypography = typography || themeColor || typographyOptions.defaultOptions.variant;
+
+    const initialClasses = mapObjectToString(initial);
+    const variantClasses = mapObjectToString(
+        lookupOptions(typographyOptions.styles.variants, resolvedTypography, typographyOptions.defaultOptions.variant),
+    );
+
+    const classes = twMerge(
+        ...initialClasses,
+        variantClasses,
+        className,
+    );
+
+    return (
+        <div
+            {...args}
+            className={classes}>
+            {children}
+        </div>
+    )
+};
+
+export const Title = ({ className, children, ...args }) => {
+    const { avatar } = useTheme();
+    const { styles } = avatar.title;
+    const { initial } = styles;
+
+    const initialClasses = mapObjectToString(initial);
+
+    const classes = twMerge(
+        ...initialClasses,
+        className,
+    );
+
+    return (
+        <h4
+            {...args}
+            className={classes}>
+            {children}
+        </h4>
+    )
+};
+
+export const Subtitle = ({ className, children, ...args }) => {
+    const { avatar } = useTheme();
+    const { styles } = avatar.subtitle;
+    const { initial } = styles;
+
+    const initialClasses = mapObjectToString(initial);
+
+    const classes = twMerge(
+        ...initialClasses,
+        className,
+    );
+
+    return (
+        <p
+            {...args}
+            className={classes}>
+            {children}
+        </p>
+    )
+};
+
+export default Avatar;
