@@ -1,19 +1,19 @@
-const mapObjectToString = (obj) => {
+const mapObjectToString = (...objects) => {
     const classes = [];
 
-    const processValue = (value) => {
-        if (typeof value === 'string') {
-            classes.push(value);
-        } else if (typeof value === 'object') {
-            classes.push(...mapObjectToString(value));
+    objects.forEach(obj => {
+        if (typeof obj === 'object' && obj !== null) {
+            Object.values(obj).forEach(value => {
+                if (typeof value === 'string') {
+                    classes.push(value);
+                } else if (typeof value === 'object') {
+                    classes.push(...mapObjectToString(value));
+                }
+            });
+        } else if (typeof obj === 'string') {
+            classes.push(obj);
         }
-    };
-
-    if (typeof obj === 'object' && obj !== null) {
-        Object.values(obj).forEach(processValue);
-    } else if (typeof obj === 'string') {
-        classes.push(obj);
-    }
+    });
 
     return classes;
 };
