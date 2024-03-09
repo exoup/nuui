@@ -44,6 +44,7 @@ export const AvatarWithTextStory = ({ name, subtitle, color, ...args }) => (
 
 AvatarWithTextStory.storyName = "AvatarWithText";
 AvatarWithTextStory.args = {
+    src: '',
     subtitle: "Grocery Store",
     size: "xl"
 }
