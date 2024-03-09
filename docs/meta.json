@@ -10,8 +10,8 @@
       "levels": [
         "Accordion"
       ],
-      "locStart": 24,
-      "locEnd": 41,
+      "locStart": 22,
+      "locEnd": 36,
       "filePath": "src/components/Accordion/Accordion.stories.jsx",
       "namedExport": "AccordionComponent",
       "meta": {}
@@ -21,8 +21,8 @@
       "levels": [
         "Accordion"
       ],
-      "locStart": 45,
-      "locEnd": 64,
+      "locStart": 40,
+      "locEnd": 56,
       "filePath": "src/components/Accordion/Accordion.stories.jsx",
       "namedExport": "NonAccordionComponent",
       "meta": {}
@@ -32,8 +32,8 @@
       "levels": [
         "Avatar"
       ],
-      "locStart": 32,
-      "locEnd": 42,
+      "locStart": 29,
+      "locEnd": 31,
       "filePath": "src/components/Avatar/Avatar.stories.jsx",
       "namedExport": "AvatarStory",
       "meta": {}
@@ -43,8 +43,8 @@
       "levels": [
         "Avatar"
       ],
-      "locStart": 46,
-      "locEnd": 62,
+      "locStart": 35,
+      "locEnd": 43,
       "filePath": "src/components/Avatar/Avatar.stories.jsx",
       "namedExport": "AvatarWithTextStory",
       "meta": {}
@@ -54,8 +54,8 @@
       "levels": [
         "Button"
       ],
-      "locStart": 50,
-      "locEnd": 52,
+      "locStart": 39,
+      "locEnd": 41,
       "filePath": "src/components/Button/Button.stories.jsx",
       "namedExport": "Default",
       "meta": {}
@@ -65,8 +65,8 @@
       "levels": [
         "Button"
       ],
-      "locStart": 65,
-      "locEnd": 78,
+      "locStart": 66,
+      "locEnd": 71,
       "filePath": "src/components/Button/Button.stories.jsx",
       "namedExport": "IconButtonDefault",
       "meta": {}
@@ -76,8 +76,8 @@
       "levels": [
         "Button"
       ],
-      "locStart": 54,
-      "locEnd": 56,
+      "locStart": 43,
+      "locEnd": 45,
       "filePath": "src/components/Button/Button.stories.jsx",
       "namedExport": "PillButtonDefault",
       "meta": {}
@@ -87,8 +87,8 @@
       "levels": [
         "Button"
       ],
-      "locStart": 81,
-      "locEnd": 91,
+      "locStart": 54,
+      "locEnd": 58,
       "filePath": "src/components/Button/Button.stories.jsx",
       "namedExport": "ShapeButtonDefault",
       "meta": {}
@@ -98,8 +98,8 @@
       "levels": [
         "Card"
       ],
-      "locStart": 81,
-      "locEnd": 101,
+      "locStart": 87,
+      "locEnd": 107,
       "filePath": "src/components/Card/Card.stories.jsx",
       "namedExport": "CardWithAccordion",
       "meta": {}
@@ -109,8 +109,8 @@
       "levels": [
         "Card"
       ],
-      "locStart": 31,
-      "locEnd": 41,
+      "locStart": 35,
+      "locEnd": 53,
       "filePath": "src/components/Card/Card.stories.jsx",
       "namedExport": "CardWithHero",
       "meta": {}
@@ -120,8 +120,8 @@
       "levels": [
         "Card"
       ],
-      "locStart": 43,
-      "locEnd": 65,
+      "locStart": 55,
+      "locEnd": 71,
       "filePath": "src/components/Card/Card.stories.jsx",
       "namedExport": "CardWithImage",
       "meta": {}
@@ -131,8 +131,8 @@
       "levels": [
         "Card"
       ],
-      "locStart": 67,
-      "locEnd": 79,
+      "locStart": 73,
+      "locEnd": 85,
       "filePath": "src/components/Card/Card.stories.jsx",
       "namedExport": "CardWithSection",
       "meta": {}
@@ -142,8 +142,8 @@
       "levels": [
         "Menu"
       ],
-      "locStart": 35,
-      "locEnd": 56,
+      "locStart": 31,
+      "locEnd": 48,
       "filePath": "src/components/Menu/Menu.stories.jsx",
       "namedExport": "MenuStory",
       "meta": {}
@@ -153,8 +153,8 @@
       "levels": [
         "Menu"
       ],
-      "locStart": 60,
-      "locEnd": 85,
+      "locStart": 52,
+      "locEnd": 79,
       "filePath": "src/components/Menu/Menu.stories.jsx",
       "namedExport": "MenuProfile",
       "meta": {}
