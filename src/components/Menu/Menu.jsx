@@ -1,8 +1,9 @@
 import { useRef, useCallback, useEffect } from "react";
 import { useMenu, MenuProvider, useOnClickOutside } from "./MenuContext.jsx";
-import { twMerge } from "tailwind-merge";
+import { twMerge, twJoin } from "tailwind-merge";
 import { useTheme } from "../../context/ThemeContext.jsx";
-import { radiusOptions, surfaceColorOptions, textOptions } from "../../context/classOptions.js";
+import mapObjectToString from "../../util/mapObjectToString";
+import lookupOptions from "../../util/lookupOptions";
 
 export default function Menu({ children, className }) {
 
@@ -26,14 +27,17 @@ export const MenuControl = ({ children }) => {
     }, [setButtonRef, toggleMenu]);
 
     return (
-        <div ref={buttonRef} className="size-max" onClick={handleClick}>
+        <div
+            ref={buttonRef}
+            className="size-max"
+            onClick={handleClick}>
             {children}
         </div >
     );
 
 };
 
-export const MenuContent = ({ children, className, themeClass = useTheme(), radiusClass = 'round', alignment = 'center' }) => {
+export const MenuContent = ({ alignment = 'center', typography, color, radius, variant, className, children, ...args }) => {
     const menuRef = useRef(null);
     const { isOpen, toggleMenu, buttonRef } = useMenu();
 
@@ -89,42 +93,83 @@ export const MenuContent = ({ children, className, themeClass = useTheme(), radi
 
     useOnClickOutside(menuRef, handleOutsideClick, buttonRef);
 
+    const { menu, typography: typographyOptions, themeColor } = useTheme();
+    const { defaultOptions, styles } = menu;
+    const { initial, radii, variants } = styles;
+
+    const resolvedColor = color || themeColor || defaultOptions.color;
+    const resolvedRadius = radius || defaultOptions.radius;
+    const resolvedVariant = variant || defaultOptions.variant;
+    const resolvedTypography = typography || resolvedColor || typographyOptions.defaultOptions.variant;
+
+    const initialClasses = mapObjectToString(initial);
+    const lookupClasses = twJoin(
+        lookupOptions(radii, resolvedRadius, defaultOptions.radius),
+    );
+    const variantClasses = mapObjectToString(
+        lookupOptions(typographyOptions.styles.variants, resolvedTypography, typographyOptions.defaultOptions.variant),
+        lookupOptions(variants, resolvedVariant, defaultOptions.variant)[resolvedColor]
+    );
+
+    const classes = twMerge(
+        ...initialClasses,
+        lookupClasses,
+        ...variantClasses,
+        className,
+    );
+
     return (
         isOpen ?
             <div
+                {...args}
                 ref={menuRef}
                 hidden={!isOpen}
-                className={twMerge(
-                    'absolute z-10 min-w-fit w-44 my-2 p-1 shadow',
-                    surfaceColorOptions[themeClass],
-                    radiusOptions[radiusClass],
-                    textOptions[themeClass],
-                    className
-                )}>
+                className={classes}>
                 {children}
             </div> : null
     )
 };
 
-export const MenuItem = ({ children, className, disabled = false, ...args }) => {
+export const MenuItem = ({ disabled = false, className, children, ...args }) => {
+
+    const { menu } = useTheme();
+    const { styles } = menu.item;
+    const { initial } = styles;
+
+    const initialClasses = mapObjectToString(initial);
+
+    const classes = twMerge(
+        ...initialClasses,
+        className,
+    );
+
     return (
-        <button {...args} disabled={disabled} className={twMerge(
-            'flex items-center w-full py-2 px-3 rounded-[inherit] gap-2',
-            'disabled:opacity-30 dark:disabled:opacity-40 disabled:hover:!bg-transparent disabled:cursor-not-allowed',
-            'hover:bg-[rgba(0,0,0,0.15)] dark:hover:bg-[rgba(0,0,0,0.45)]',
-            className
-        )}>
+        <button
+            {...args}
+            disabled={disabled}
+            className={classes}>
             {children}
         </button>
     )
 };
 
-export const MenuDivider = ({ className }) => {
+export const MenuDivider = ({ className, ...args }) => {
+
+    const { menu } = useTheme();
+    const { styles } = menu.divider;
+    const { initial } = styles;
+
+    const initialClasses = mapObjectToString(initial);
+
+    const classes = twMerge(
+        ...initialClasses,
+        className,
+    );
+
     return (
-        <div className={twMerge(
-            'border-t border-inherit my-1',
-            className
-        )}>
+        <div
+            {...args}
+            className={classes}>
         </div>
     )
 }
