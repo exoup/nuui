@@ -1,11 +1,9 @@
 import { Fragment } from "react";
 //Components
-import Button from "./Button.jsx"; 2
-import { IconButton } from "./discard/IconButton.jsx";
-import { Icon } from '../Icon/Icon.jsx';
-import { Follower } from "../Textual/Follower.jsx";
+import Button from "./Button.jsx";
+import Menu, { MenuControl, MenuContent, MenuItem, MenuDivider } from "../Menu/Menu.jsx";
 //Icons
-import { ArrowUpIcon, CheckIcon } from '@heroicons/react/24/outline'
+import { CheckIcon, ChevronDownIcon, UserCircleIcon, Cog6ToothIcon, ArrowRightStartOnRectangleIcon } from '@heroicons/react/24/outline'
 
 export default {
     args: {
@@ -78,4 +76,26 @@ IconButtonDefault.args = {
 };
 IconButtonDefault.storyName = 'Icon Button';
 
-// TODO: SplitButton to be two buttons in a button group.
+export const SplitButtonDefault = ({ children, ...args }) => (
+    <Menu>
+        <div className='flex flex-row'>
+            <Button {...args} className={'rounded-r-none border-r-black/25 border-r'}>{children}</Button>
+            <MenuControl>
+                <Button {...args} className={'px-2.5 rounded-l-none'}>
+                    <ChevronDownIcon className="size-6" />
+                </Button>
+            </MenuControl>
+        </div>
+        <MenuContent {...args} className={'w-44'}>
+            <MenuItem><UserCircleIcon className="size-5" />Profile</MenuItem>
+            <MenuItem><Cog6ToothIcon className="size-5" />Settings</MenuItem>
+            <MenuDivider />
+            <MenuItem disabled><ArrowRightStartOnRectangleIcon className="size-5" />Logout</MenuItem>
+        </MenuContent>
+    </Menu >
+);
+
+SplitButtonDefault.args = {
+    children: 'Split Button'
+};
+SplitButtonDefault.storyName = 'Split Button';
