@@ -6,20 +6,16 @@ import mapObjectToString from "../../util/mapObjectToString";
 import lookupOptions from "../../util/lookupOptions";
 
 export default function Menu({ children, className }) {
-
     return (
         <MenuProvider>
-            <span className={twMerge(className)}>
-                {children}
-            </span>
+            <span className={twMerge(className)}>{children}</span>
         </MenuProvider>
-    )
-};
+    );
+}
 
 export const MenuControl = ({ children }) => {
-
     const { toggleMenu, setButtonRef, buttonRef } = useMenu();
-    const buttonGroupRef = useRef(null)
+    const buttonGroupRef = useRef(null);
 
     const handleClick = useCallback(() => {
         setButtonRef(buttonGroupRef);
@@ -27,59 +23,53 @@ export const MenuControl = ({ children }) => {
     }, [setButtonRef, toggleMenu]);
 
     return (
-        <div
-            ref={buttonRef}
-            className="size-max"
-            onClick={handleClick}>
+        <div ref={buttonRef} className='size-max' onClick={handleClick}>
             {children}
-        </div >
+        </div>
     );
-
 };
 
-export const MenuContent = ({ alignment = 'center', typography, color, radius, variant, className, children, ...args }) => {
+export const MenuContent = ({
+    alignment = "center",
+    typography,
+    color,
+    radius,
+    variant,
+    className,
+    children,
+    ...args
+}) => {
     const menuRef = useRef(null);
     const { isOpen, toggleMenu, buttonRef } = useMenu();
 
-    const handleMenuPosition = (alignment) => {
-        if (!isOpen) {
-            return;
-        }
-        const buttonRect = buttonRef.current.getBoundingClientRect();
-        const menuRect = menuRef.current.getBoundingClientRect();
-        const menuPosition = {};
+    const handleMenuPosition = useCallback(
+        (alignment) => {
+            if (!isOpen || !buttonRef.current || !menuRef.current) return;
+            const { left, top, width, height } =
+                buttonRef.current.getBoundingClientRect();
+            const menuWidth = menuRef.current.offsetWidth;
+            const menuHeight = menuRef.current.offsetHeight;
+            const windowWidth = window.innerWidth;
+            const windowHeight = window.innerHeight;
+            let leftPos;
 
-        switch (alignment) {
-            case 'left':
-                menuPosition.left = buttonRect.left;
-                menuPosition.top = buttonRect.top + buttonRect.height;
-                break;
-            case 'right':
-                menuPosition.left = buttonRect.left + buttonRect.width - menuRect.width;
-                menuPosition.top = buttonRect.top + buttonRect.height;
-                break;
-            default:
-            case 'center':
-                menuPosition.left = buttonRect.left + buttonRect.width / 2 - menuRect.width / 2;
-                menuPosition.top = buttonRect.top + buttonRect.height;
-                break;
-        }
+            switch (alignment) {
+                case "left":
+                    leftPos = left;
+                    break;
+                case "right":
+                    leftPos = left + width - menuWidth;
+                    break;
+                default:
+                    leftPos = left + width / 2 - menuWidth / 2;
+            }
+            const topPos = top + height;
 
-        if (menuPosition.left < 0) {
-            menuPosition.left = buttonRect.left;
-        } else if (menuPosition.left + menuRect.width > window.innerWidth) {
-            menuPosition.left = buttonRect.left + buttonRect.width - menuRect.width;
-        }
-
-        if (menuPosition.top < 0) {
-            menuPosition.top = 0;
-        } else if (menuPosition.top + menuRect.height > window.innerHeight) {
-            menuPosition.top = window.innerHeight - menuRect.height;
-        }
-
-        menuRef.current.style.left = `${menuPosition.left}px`;
-        menuRef.current.style.top = `${menuPosition.top}px`;
-    };
+            menuRef.current.style.left = Math.max(10, Math.min(leftPos, windowWidth - menuWidth)) + "px";
+            menuRef.current.style.top = Math.max(0, Math.min(topPos, windowHeight - menuHeight)) + "px";
+        },
+        [isOpen, buttonRef]
+    );
 
     const handleOutsideClick = () => {
         if (isOpen) {
@@ -89,7 +79,7 @@ export const MenuContent = ({ alignment = 'center', typography, color, radius, v
 
     useEffect(() => {
         handleMenuPosition(alignment);
-    }, [isOpen, alignment]);
+    }, [isOpen, alignment, handleMenuPosition]);
 
     useOnClickOutside(menuRef, handleOutsideClick, buttonRef);
 
@@ -104,7 +94,7 @@ export const MenuContent = ({ alignment = 'center', typography, color, radius, v
 
     const initialClasses = mapObjectToString(initial);
     const lookupClasses = twJoin(
-        lookupOptions(radii, resolvedRadius, defaultOptions.radius),
+        lookupOptions(radii, resolvedRadius, defaultOptions.radius)
     );
     const variantClasses = mapObjectToString(
         lookupOptions(typographyOptions.styles.variants, resolvedTypography, typographyOptions.defaultOptions.variant),
@@ -115,64 +105,43 @@ export const MenuContent = ({ alignment = 'center', typography, color, radius, v
         ...initialClasses,
         lookupClasses,
         ...variantClasses,
-        className,
+        className
     );
 
-    return (
-        isOpen ?
-            <div
-                {...args}
-                ref={menuRef}
-                hidden={!isOpen}
-                className={classes}>
-                {children}
-            </div> : null
-    )
+    return isOpen ? (
+        <div {...args} ref={menuRef} hidden={!isOpen} className={classes}>
+            {children}
+        </div>
+    ) : null;
 };
 
 export const MenuItem = ({ disabled = false, className, children, ...args }) => {
-
     const { menu } = useTheme();
     const { styles } = menu.item;
     const { initial } = styles;
 
     const initialClasses = mapObjectToString(initial);
 
-    const classes = twMerge(
-        ...initialClasses,
-        className,
-    );
+    const classes = twMerge(...initialClasses, className);
 
     return (
-        <button
-            {...args}
-            disabled={disabled}
-            className={classes}>
+        <button {...args} disabled={disabled} className={classes}>
             {children}
         </button>
-    )
+    );
 };
 
 export const MenuDivider = ({ className, ...args }) => {
-
     const { menu } = useTheme();
     const { styles } = menu.divider;
     const { initial } = styles;
 
     const initialClasses = mapObjectToString(initial);
 
-    const classes = twMerge(
-        ...initialClasses,
-        className,
-    );
+    const classes = twMerge(...initialClasses, className);
 
-    return (
-        <div
-            {...args}
-            className={classes}>
-        </div>
-    )
-}
+    return <div {...args} className={classes}></div>;
+};
 
 // /* Always center carot to middle of button. */
 // /* TODO: Break carot out into own component. */
