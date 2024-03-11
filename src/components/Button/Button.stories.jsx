@@ -1,4 +1,3 @@
-import { Fragment } from "react";
 //Components
 import Button from "./Button.jsx";
 import Menu, { MenuControl, MenuContent, MenuItem, MenuDivider } from "../Menu/Menu.jsx";
@@ -81,7 +80,7 @@ export const SplitButtonDefault = ({ children, ...args }) => (
         <div className='flex flex-row'>
             <Button {...args} className={'rounded-r-none border-r-black/25 border-r'}>{children}</Button>
             <MenuControl>
-                <Button {...args} className={'px-2.5 rounded-l-none'}>
+                <Button color={args.color} radius={args.radius} size={args.size} variant={args.variant} className={'px-2.5 rounded-l-none'}>
                     <ChevronDownIcon className="size-6" />
                 </Button>
             </MenuControl>
