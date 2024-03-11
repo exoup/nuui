@@ -13,7 +13,7 @@ export default function Accordion({ onChange = null, initialExpanded = [], accor
                 setOpenDrawers((prevState) => prevState.includes(index) ? [] : [index]);
             } else {
                 setOpenDrawers((prevState) => prevState.includes(index) ? prevState.filter((drawerIndex) => drawerIndex !== index) : [...prevState, index]);
-            };
+            }
         };
         return [openDrawers, toggleDrawer];
     };
@@ -68,7 +68,7 @@ export default function Accordion({ onChange = null, initialExpanded = [], accor
             }
         </div>
     )
-};
+}
 
 export const Drawer = ({ ariaId, ariaControls, title, onClick = () => { }, onChange, expanded = false, icon = true, color, variant, className, children }) => {
 
