@@ -1,6 +1,7 @@
 import Card, { Content, Hero, Title, Section } from "./Card";
 import Accordion, { Drawer } from "../Accordion/Accordion";
 import Button from '../Button/Button';
+import Input from "../Input/Input";
 import { ChevronDoubleRightIcon } from "@heroicons/react/24/outline";
 import "../../resources/styles.css";
 
@@ -105,3 +106,25 @@ export const CardWithAccordion = ({ ...args }) => (
         </Content>
     </Card>
 );
+
+export const CardWithLogin = ({ ...args }) => (
+    <Card {...args} className="pb-2 border-l-tertiary-500 border-l-8 rounded-l-md">
+        <Content variant={args.color} className="flex flex-col place-content-center">
+            <form className="flex flex-col gap-6" onSubmit={(e) => e.preventDefault()} action="#">
+                <Title className="text-2xl">Login</Title>
+                <Input color={args.color} label={"Username"} required />
+                <Input color={args.color} label={"Password"} type={"password"} required />
+                <div className="flex justify-between items-center gap-2">
+                    <label className="flex items-center gap-2"><input type="checkbox" className="checked:text-tertiary-500" />Remember me</label>
+                    <a href="#" className="hover:underline text-tertiary-500">Forgot Password?</a>
+                </div>
+                <Button {...args} type="submit" className="w-3/4 self-center">Login</Button>
+            </form>
+        </Content>
+    </Card >
+)
+
+CardWithLogin.args = {
+    color: "tertiary",
+    radius: "round",
+};
