@@ -70,7 +70,7 @@ export default function Accordion({ onChange = null, initialExpanded = [], accor
     )
 }
 
-export const Drawer = ({ ariaId, ariaControls, title, onClick = () => { }, onChange, expanded = false, icon = true, color, variant, className, children }) => {
+export const Drawer = ({ ariaId, ariaControls, title, onClick = () => { }, onChange, expanded = false, icon = true, buttonProps, color, variant, className, children }) => {
 
     const handleClick = () => {
         if (onChange) {
@@ -86,26 +86,48 @@ export const Drawer = ({ ariaId, ariaControls, title, onClick = () => { }, onCha
     const resolvedColor = color || themeColor || defaultOptions.color;
     const resolvedVariant = variant || defaultOptions.variant;
 
+    const initialContentClasses = mapObjectToString(
+        lookupOptions(initial, 'content', 'content'),
+    );
+    const initialButtonClasses = mapObjectToString(
+        lookupOptions(initial, 'button', 'button'),
+    )
+
     const initialClasses = mapObjectToString(initial);
-    const variantClasses = mapObjectToString(
-        lookupOptions(variants, resolvedVariant, defaultOptions.variant)[resolvedColor]
+
+    const containerVariant = mapObjectToString(
+        lookupOptions(variants, resolvedVariant, defaultOptions.variant)['content']['base'],
+        lookupOptions(variants, resolvedVariant, defaultOptions.variant)['content']['style'][resolvedColor],
     );
 
-    const classes = twMerge(
+    const buttonVariant = mapObjectToString(
+        lookupOptions(variants, resolvedVariant, defaultOptions.variant)['button']['base'],
+        lookupOptions(variants, resolvedVariant, defaultOptions.variant)['button']['style'][resolvedColor],
+    );
+
+    const contentClasses = twMerge(
         ...initialClasses,
-        variantClasses,
-        className,
+        ...initialContentClasses,
+        ...containerVariant,
+        className
+    );
+
+    const buttonClasses = twMerge(
+        ...initialButtonClasses,
+        ...buttonVariant,
+        buttonProps?.className,
     );
 
     return (
         <div>
             <button
+                {...buttonProps}
                 aria-expanded={expanded}
                 aria-controls={ariaControls}
                 id={ariaId}
                 role="button"
                 onClick={handleClick}
-                className="flex w-full items-center justify-between p-4 group/expandable">
+                className={buttonClasses}>
                 <h3 role="heading">
                     {title}
                 </h3>
@@ -119,7 +141,7 @@ export const Drawer = ({ ariaId, ariaControls, title, onClick = () => { }, onCha
                 className={twJoin('grid motion-safe:transition-all motion-safe:duration-300 motion-safe:ease-in-out',
                     expanded ? 'grid-rows-[1fr]' : 'grid-rows-[0fr] invisible')}>
                 <div className="overflow-hidden">
-                    <div data-open={expanded} className={classes}>
+                    <div data-open={expanded} className={contentClasses}>
                         {children}
                     </div>
                 </div>

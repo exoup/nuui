@@ -5,7 +5,7 @@ import drawer from "./Drawer/AccordionDrawer.theme";
 
 export const accordion = {
     defaultOptions: {
-        color: 'primary',
+        color: 'default',
         radius: 'round',
         variant: 'solid',
     },

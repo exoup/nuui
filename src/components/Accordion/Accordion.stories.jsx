@@ -1,4 +1,3 @@
-import { Fragment } from "react";
 import Accordion, { Drawer } from "./Accordion";
 
 export default {
@@ -7,8 +6,8 @@ export default {
     },
     argTypes: {
         color: {
-            defaultValue: 'primary',
-            options: ['primary', 'secondary', 'tertiary', 'neutral'],
+            defaultValue: 'default',
+            options: ['default'],
             control: { type: 'radio' }
         },
         radius: {
