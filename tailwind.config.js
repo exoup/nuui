@@ -1,3 +1,8 @@
+/*eslint no-undef: "error"*/
+/*eslint-env node*/
+
+const colar = require('./src/resources/colar.js');
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
     content: ["./src/**/*.{js,ts,jsx,tsx}"],
@@ -5,6 +10,7 @@ module.exports = {
     theme: {
         extend: {
             colors: {
+                ...colar,
                 primary: {
                     '50': '#f1f4fd',
                     '100': '#dfe7fa',
@@ -56,6 +62,36 @@ module.exports = {
                 "light-text": '#191919',
                 success: '#B2EDC5',
                 "success-text": '#10512A',
+                bunting: {
+                    0: '#f1f4fd',
+                    1: '#e2defb',
+                    2: '#d1c8f6',
+                    3: '#c0b4ee',
+                    4: '#aea0e4',
+                    5: '#9c8dd8',
+                    6: '#897bc9',
+                    7: '#7769b9',
+                    8: '#6459a6',
+                    9: '#524a92',
+                    10: '#403c7c',
+                    11: '#2e2e65',
+                    12: '#1e224d'
+                },
+                roman: {
+                    "0": "#fff0f0",
+                    "1": "#ffd6d6",
+                    "2": "#ffbcbb",
+                    "3": "#ffa19e",
+                    "4": "#f78883",
+                    "5": "#eb706b",
+                    "6": "#da5b55",
+                    "7": "#c54944",
+                    "8": "#af3836",
+                    "9": "#97292a",
+                    "10": "#7f1b22",
+                    "11": "#670e1b",
+                    "12": "#4f0315"
+                }
             },
         },
     },
