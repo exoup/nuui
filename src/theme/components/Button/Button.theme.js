@@ -3,7 +3,7 @@ import OutlineOptions from './ButtonOutline.theme';
 
 export const button = {
     defaultOptions: {
-        color: 'primary',
+        color: 'default',
         radius: 'round',
         size: 'normal',
         variant: 'solid',
@@ -21,8 +21,8 @@ export const button = {
         },
         sizes: {
             reset: '',
-            normal: 'px-6 py-2.5 ',
-            wide: 'px-24 py-2.5 ',
+            normal: 'px-6 py-2.5',
+            wide: 'px-24 py-2.5',
             full: 'block w-full py-2.5'
         },
         variants: {

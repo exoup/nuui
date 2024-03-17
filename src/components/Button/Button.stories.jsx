@@ -14,8 +14,8 @@ export default {
             action: "clicked"
         },
         color: {
-            defaultValue: 'primary',
-            options: ['primary', 'secondary', 'tertiary', 'neutral'],
+            defaultValue: 'default',
+            options: ['default'],
             control: { type: 'radio' }
         },
         radius: {
