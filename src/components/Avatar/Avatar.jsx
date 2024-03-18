@@ -31,13 +31,13 @@ const Avatar = ({ name, src, alt, flush = false, color, radius, size, variant, c
                     setImageLoaded(false);
                 };
             }
-        };
+        }
 
         return () => {
             if (avatarImageRef.current) {
                 avatarImageRef.current.onload = null;
                 avatarImageRef.current.onerror = null;
-            };
+            }
         };
     }, [src]);
 
@@ -65,6 +65,7 @@ const Avatar = ({ name, src, alt, flush = false, color, radius, size, variant, c
         ...initialClasses,
         lookupClasses,
         ...variantClasses,
+        imageLoaded && '!bg-transparent',
         className,
     );
 

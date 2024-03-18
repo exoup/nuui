@@ -2,15 +2,15 @@ import Avatar, { AvatarWithText, Content, Title, Subtitle } from "./Avatar";
 
 export default {
     args: {
-        src: "https://images.unsplash.com/photo-1552320764-9fc870798a3f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&w=512&h=512",
+        src: "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?q=80&w=2070&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&&fit=facearea&facepad=2&w=256&h=256&q=80",
         alt: "avatar",
         name: "John Yogurt",
         flush: false
     },
     argTypes: {
         color: {
-            defaultValue: 'primary',
-            options: ['primary', 'secondary', 'tertiary', 'neutral'],
+            defaultValue: 'default',
+            options: ['default'],
             control: { type: 'inline-radio' }
         },
         radius: {

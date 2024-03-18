@@ -8,7 +8,7 @@ import subtitle from "./AvatarSubtitle.theme";
 
 export const avatar = {
     defaultOptions: {
-        color: 'primary',
+        color: 'default',
         radius: 'full',
         size: 'lg',
         variant: 'solid',
