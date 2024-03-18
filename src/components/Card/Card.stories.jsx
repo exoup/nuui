@@ -11,13 +11,13 @@ import { useLadleContext } from "@ladle/react";
 
 export default {
     args: {
-        color: "primary",
+        color: "default",
         radius: "round",
     },
     argTypes: {
         color: {
-            defaultValue: 'primary',
-            options: ['primary', 'secondary', 'tertiary', 'neutral'],
+            defaultValue: 'default',
+            options: ['default'],
             control: { type: 'inline-radio' }
         },
         radius: {
@@ -125,6 +125,5 @@ export const CardWithLogin = ({ ...args }) => (
 )
 
 CardWithLogin.args = {
-    color: "tertiary",
     radius: "round",
 };

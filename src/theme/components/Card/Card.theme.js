@@ -8,7 +8,7 @@ import section from "./CardSection.theme";
 
 export const card = {
     defaultOptions: {
-        color: 'primary',
+        color: 'default',
         radius: 'round',
         variant: 'solid',
     },
