@@ -1,28 +1,15 @@
 const FloatOptions = {
     input: {
         base: {
-            initial: 'peer block w-full bg-transparent border-2',
+            initial: 'peer block w-full',
             animation: 'motion-safe:transition-all',
             reset: 'focus:ring-0 focus-visible:outline-0',
-            light: 'border-gray-300 bg-white',
-            dark: 'dark:bg-zinc-900 dark:border-zinc-800',
         },
         style: {
             default: {
-                light: 'focus-within:border-inherit',
-                dark: 'dark:focus-within:border-inherit'
-            },
-            primary: {
-                light: 'focus-within:border-primary-500',
-                dark: 'dark:focus-within:border-primary-500'
-            },
-            secondary: {
-                light: 'focus-within:border-secondary-500',
-                dark: 'dark:focus-within:border-secondary-500'
-            },
-            tertiary: {
-                light: 'focus-within:border-tertiary-500',
-                dark: 'dark:focus-within:border-tertiary-500'
+                initial: 'border-2 bg-transparent',
+                light: 'border-gray-4',
+                dark: 'dark:border-gray-10'
             }
         }
     },
@@ -33,22 +20,12 @@ const FloatOptions = {
             placeholder: 'peer-placeholder-shown:scale-100 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2',
             peerfocus: 'peer-focus-within:scale-75 peer-focus-within:top-0 peer-focus-within:-translate-y-1/2',
             animation: 'motion-safe:transition-all',
-            light: 'bg-white',
-            dark: 'dark:bg-zinc-900',
         },
         style: {
             default: {
-                light: 'peer-focus-within:text-inherit',
+                light: 'bg-white peer-focus-within:text-inherit',
+                dark: 'peer-placeholder-shown:bg-transparent bg-black/20'
             },
-            primary: {
-                light: 'peer-focus-within:text-primary-500',
-            },
-            secondary: {
-                light: 'peer-focus-within:text-secondary-500',
-            },
-            tertiary: {
-                light: 'peer-focus-within:text-tertiary-500',
-            }
         }
     },
 };

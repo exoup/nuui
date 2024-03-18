@@ -7,7 +7,7 @@ export default {
     argTypes: {
         color: {
             defaultValue: 'default',
-            options: ['default', 'primary', 'secondary', 'tertiary', 'neutral'],
+            options: ['default'],
             control: { type: 'inline-radio' }
         },
         radius: {

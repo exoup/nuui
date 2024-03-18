@@ -33,7 +33,7 @@ const Input = ({ containerProps, labelProps, label, placeholder, typography, col
         lookupOptions(variants, resolvedVariant, defaultOptions.variant)['label']['style'][resolvedColor],
     );
 
-    const id = args.id || Math.random().toString(36).substr(2, 9);
+    const id = args.id || Math.random().toString(36).substring(2, 9);
     const containerClasses = twMerge(
         ...initialContainerClasses,
         containerProps?.className
