@@ -6,7 +6,7 @@ import divider from "./MenuDivider.theme";
 
 export const menu = {
     defaultOptions: {
-        color: 'primary',
+        color: 'default',
         radius: 'round',
         variant: 'solid',
     },
