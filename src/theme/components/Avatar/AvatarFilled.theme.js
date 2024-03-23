@@ -1,10 +1,10 @@
 const FilledOptions = {
     default: {
         base: {
-            light: 'bg-gray-12',
-            dark: 'dark:bg-gray-2',
-            hover: 'hover:bg-gray-10 dark:hover:bg-gray-4',
-            text: 'text-white dark:text-black'
+            light: 'bg-light-contrast',
+            dark: 'dark:bg-dark-contrast',
+            hover: 'hover:bg-light-foreground dark:hover:bg-dark-foreground',
+            text: 'text-light-background dark:text-dark-background'
         }
     }
 };

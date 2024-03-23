@@ -8,8 +8,8 @@ export const content = {
         },
         variants: {
             default: {
-                light: 'text-gray-10',
-                dark: 'dark:text-white'
+                light: 'text-light-foreground',
+                dark: 'dark:text-dark-foreground'
             },
         }
     }

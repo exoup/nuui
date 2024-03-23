@@ -42,7 +42,7 @@ export const CardWithHero = ({ ...args }) => {
 
     return (
         <Card {...args} className="w-80">
-            <Hero className="h-64 bg-slate-600 heroPatternClouds" />
+            <Hero className="h-64 bg-boulder-10 heroPatternClouds" />
             <Content variant={args.color}>
                 <Title>This is a card component.</Title>
                 <p>It uses a Hero with a background-image.</p>
@@ -87,7 +87,7 @@ export const CardWithSection = ({ ...args }) => (
 
 export const CardWithAccordion = ({ ...args }) => (
     <Card {...args}>
-        <Hero className="h-64 bg-primary dark:bg-tertiary heroPatternCogs" />
+        <Hero className="h-64 bg-primary dark:bg-roman-3 heroPatternCogs" />
         <Content variant={args.color}>
             <Title className="text-xl">This is an accordion card.</Title>
             <Accordion
@@ -108,15 +108,15 @@ export const CardWithAccordion = ({ ...args }) => (
 );
 
 export const CardWithLogin = ({ ...args }) => (
-    <Card {...args} className="pb-2 border-l-tertiary-500 border-l-8 rounded-l-md">
+    <Card {...args} className="pb-2 border-l-roman-5 border-l-8 rounded-l-md">
         <Content variant={args.color} className="flex flex-col place-content-center">
             <form className="flex flex-col gap-6" onSubmit={(e) => e.preventDefault()} action="#">
                 <Title className="text-2xl">Login</Title>
                 <Input color={args.color} label={"Username"} required />
                 <Input color={args.color} label={"Password"} type={"password"} required />
                 <div className="flex justify-between items-center gap-2">
-                    <label className="flex items-center gap-2"><input type="checkbox" className="checked:text-tertiary-500" />Remember me</label>
-                    <a href="#" className="hover:underline text-tertiary-500">Forgot Password?</a>
+                    <label className="flex items-center gap-2"><input type="checkbox" className="checked:text-roman-6" />Remember me</label>
+                    <a href="#" className="hover:underline text-roman-6">Forgot Password?</a>
                 </div>
                 <Button {...args} type="submit" className="w-3/4 self-center">Login</Button>
             </form>

@@ -1,12 +1,12 @@
 const FilledOptions = {
     default: {
         base: {
-            light: 'bg-gray-12 text-white',
-            dark: 'dark:bg-gray-2 dark:text-black',
+            light: 'bg-light-contrast text-light-background',
+            dark: 'dark:bg-dark-contrast dark:text-dark-background',
         },
-        shadow: 'hover:shadow-gray-12/20',
-        hover: 'hover:bg-gray-10 dark:hover:bg-gray-4',
-        active: 'active:bg-gray-11 dark:active:bg-gray-3',
+        shadow: 'hover:shadow-dark-accent/20',
+        hover: 'hover:bg-light-foreground dark:hover:bg-dark-foreground',
+        active: 'active:bg-light-active dark:active:bg-dark-active',
         disabled: {
             light: 'disabled:opacity-30',
         }

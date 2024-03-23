@@ -2,11 +2,11 @@ const OutlineOptions = {
     default: {
         base: {
             initial: 'border',
-            light: 'border-gray-6',
-            dark: 'dark:border-gray-10 dark:text-white',
+            light: 'bg-light-background border-light-border text-light-foreground',
+            dark: 'dark:bg-dark-background dark:border-dark-border dark:text-dark-foreground',
         },
-        hover: 'hover:bg-gray-2 dark:hover:bg-gray-10',
-        active: 'active:bg-gray-3 dark:active:bg-gray-11',
+        hover: 'hover:bg-light-accent dark:hover:bg-dark-accent',
+        active: 'active:bg-light-active/10 dark:active:bg-dark-active/10',
         disabled: 'disabled:opacity-30',
     }
 };

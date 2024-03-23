@@ -34,8 +34,8 @@ export const avatar = {
         variants: {
             reset: {
                 initial: 'border-none',
-                light: 'bg-transparent hover:bg-transparent text-gray-600',
-                dark: 'dark:bg-transparent dark:hover:bg-transparent dark:text-white',
+                light: 'bg-transparent hover:bg-transparent text-light-foreground',
+                dark: 'dark:bg-transparent dark:hover:bg-transparent dark:text-dark-foreground',
             },
             solid: FilledOptions,
         }

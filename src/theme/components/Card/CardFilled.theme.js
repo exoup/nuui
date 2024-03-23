@@ -1,9 +1,9 @@
 const FilledOptions = {
     default: {
         base: {
-            initial: 'border bg-transparent',
-            light: 'border-gray-4',
-            dark: 'dark:border-gray-10'
+            initial: 'border',
+            light: 'bg-light-background border-light-border',
+            dark: 'dark:bg-dark-background dark:border-dark-border'
         }
     }
 };

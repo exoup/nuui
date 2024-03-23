@@ -16,13 +16,15 @@ export const MenuProvider = ({ children }) => {
 
     const [isOpen, setIsOpen] = useState(false);
     const [buttonRef, setButtonRef] = useState(null);
+    const [menuId, setMenuId] = useState(null);
+    const [buttonControllerId, setButtonControllerId] = useState(null);
 
     const toggleMenu = useCallback(() => {
         setIsOpen((prevIsOpen) => !prevIsOpen);
     }, []);
 
     return (
-        <MenuContext.Provider value={{ isOpen, toggleMenu, buttonRef, setButtonRef }}>
+        <MenuContext.Provider value={{ isOpen, toggleMenu, buttonRef, setButtonRef, menuId, setMenuId, buttonControllerId, setButtonControllerId }}>
             {children}
         </MenuContext.Provider>
     );

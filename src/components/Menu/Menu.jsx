@@ -1,20 +1,22 @@
-import { useRef, useCallback, useEffect } from "react";
+import { useRef, useCallback, useEffect, Children, cloneElement, isValidElement } from "react";
 import { useMenu, MenuProvider, useOnClickOutside } from "./MenuContext.jsx";
 import { twMerge, twJoin } from "tailwind-merge";
 import { useTheme } from "../../context/ThemeContext.jsx";
 import mapObjectToString from "../../util/mapObjectToString";
 import lookupOptions from "../../util/lookupOptions";
 
+const generateId = () => Math.random().toString(36).substring(2, 9);
+
 export default function Menu({ children, className }) {
     return (
         <MenuProvider>
-            <span className={twMerge(className)}>{children}</span>
+            <div className={twMerge(className)}>{children}</div>
         </MenuProvider>
     );
 }
 
 export const MenuControl = ({ children }) => {
-    const { toggleMenu, setButtonRef, buttonRef } = useMenu();
+    const { toggleMenu, isOpen, setButtonRef, buttonRef, buttonControllerId, setButtonControllerId, menuId, setMenuId } = useMenu();
     const buttonGroupRef = useRef(null);
 
     const handleClick = useCallback(() => {
@@ -22,9 +24,30 @@ export const MenuControl = ({ children }) => {
         toggleMenu();
     }, [setButtonRef, toggleMenu]);
 
+    useEffect(() => {
+        setMenuId(`menu-${generateId()}`);
+        setButtonControllerId(`menu-button-${generateId()}`);
+    }, [setButtonControllerId, setMenuId]);
+
     return (
-        <div ref={buttonRef} className='size-max' onClick={handleClick}>
-            {children}
+        <div ref={buttonRef}
+            className='size-max'>
+            {
+                Children.map(children, (child) => {
+                    if (isValidElement(child)) {
+                        return cloneElement(child, {
+                            ...child.props,
+                            id: buttonControllerId,
+                            role: "button",
+                            "aria-controls": menuId,
+                            "aria-expanded": String(isOpen),
+                            "aria-haspopup": "true",
+                            onClick: handleClick
+                        });
+                    }
+                    return child;
+                })
+            }
         </div>
     );
 };
@@ -40,35 +63,37 @@ export const MenuContent = ({
     ...args
 }) => {
     const menuRef = useRef(null);
-    const { isOpen, toggleMenu, buttonRef } = useMenu();
+    const { isOpen, toggleMenu, buttonRef, buttonControllerId, menuId } = useMenu();
 
-    const handleMenuPosition = useCallback(
-        (alignment) => {
-            if (!isOpen || !buttonRef.current || !menuRef.current) return;
-            const { left, top, width, height } =
-                buttonRef.current.getBoundingClientRect();
-            const menuWidth = menuRef.current.offsetWidth;
-            const menuHeight = menuRef.current.offsetHeight;
-            const windowWidth = window.innerWidth;
-            const windowHeight = window.innerHeight;
-            let leftPos;
+    const handleMenuPosition = useCallback(() => {
+        if (!isOpen || !buttonRef.current || !menuRef.current) return;
+        const { left, top, width, height } =
+            buttonRef.current.getBoundingClientRect();
+        const menuWidth = menuRef.current.offsetWidth;
+        const menuHeight = menuRef.current.offsetHeight;
+        const windowWidth = window.innerWidth;
+        const windowHeight = window.innerHeight;
+        let leftPos;
 
-            switch (alignment) {
-                case "left":
-                    leftPos = left;
-                    break;
-                case "right":
-                    leftPos = left + width - menuWidth;
-                    break;
-                default:
-                    leftPos = left + width / 2 - menuWidth / 2;
-            }
-            const topPos = top + height;
+        switch (alignment) {
+            case "left":
+                leftPos = left;
+                break;
+            case "right":
+                leftPos = left + width - menuWidth;
+                break;
+            default:
+                leftPos = left + width / 2 - menuWidth / 2;
+        }
+        const topPos = top + height;
 
-            menuRef.current.style.left = Math.max(10, Math.min(leftPos, windowWidth - menuWidth)) + "px";
-            menuRef.current.style.top = Math.max(0, Math.min(topPos, windowHeight - menuHeight)) + "px";
-        },
-        [isOpen, buttonRef]
+        menuRef.current.style.left = Math.max(10, Math.min(leftPos, windowWidth - menuWidth)) + "px";
+        menuRef.current.style.top = Math.max(0, Math.min(topPos, windowHeight - menuHeight)) + "px";
+        menuRef.current.firstChild.focus({
+            focusVisible: true
+        });
+    },
+        [isOpen, buttonRef, alignment]
     );
 
     const handleOutsideClick = () => {
@@ -77,8 +102,24 @@ export const MenuContent = ({
         }
     };
 
+    const handleEscape = useCallback((e) => {
+        if (isOpen) {
+            if (e.key === "Escape") {
+                buttonRef.current?.firstChild?.focus();
+                toggleMenu();
+            }
+        }
+    }, [isOpen, toggleMenu, buttonRef]);
+
     useEffect(() => {
-        handleMenuPosition(alignment);
+        const handleDocumentKeyDown = (e) => handleEscape(e);
+        document.addEventListener('keydown', handleDocumentKeyDown);
+
+        return () => document.removeEventListener('keydown', handleDocumentKeyDown);
+    }, [handleEscape]);
+
+    useEffect(() => {
+        handleMenuPosition();
     }, [isOpen, alignment, handleMenuPosition]);
 
     useOnClickOutside(menuRef, handleOutsideClick, buttonRef);
@@ -108,11 +149,19 @@ export const MenuContent = ({
         className
     );
 
-    return isOpen ? (
-        <div {...args} ref={menuRef} hidden={!isOpen} className={classes}>
+    return (
+        <div {...args}
+            ref={menuRef}
+            id={menuId}
+            tabIndex={-1}
+            role="menu"
+            aria-labelledby={buttonControllerId}
+            aria-orientation="vertical"
+            hidden={!isOpen}
+            className={classes}>
             {children}
         </div>
-    ) : null;
+    );
 };
 
 export const MenuItem = ({ disabled = false, className, children, ...args }) => {
@@ -125,7 +174,12 @@ export const MenuItem = ({ disabled = false, className, children, ...args }) => 
     const classes = twMerge(...initialClasses, className);
 
     return (
-        <button {...args} disabled={disabled} className={classes}>
+        <button {...args}
+            type={args.type || 'button'}
+            tabIndex={0}
+            disabled={disabled}
+            role="menuitem"
+            className={classes}>
             {children}
         </button>
     );
@@ -140,7 +194,11 @@ export const MenuDivider = ({ className, ...args }) => {
 
     const classes = twMerge(...initialClasses, className);
 
-    return <div {...args} className={classes}></div>;
+    return <div {...args}
+        role="separator"
+        aria-orientation="horizontal"
+        className={classes}>
+    </div>;
 };
 
 // /* Always center carot to middle of button. */

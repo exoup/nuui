@@ -7,9 +7,9 @@ const FloatOptions = {
         },
         style: {
             default: {
-                initial: 'border-2 bg-transparent',
-                light: 'border-gray-4',
-                dark: 'dark:border-gray-10'
+                initial: 'border-2',
+                light: 'bg-light-background border-light-border',
+                dark: 'dark:bg-dark-background dark:border-dark-border'
             }
         }
     },
@@ -23,8 +23,8 @@ const FloatOptions = {
         },
         style: {
             default: {
-                light: 'bg-white peer-focus-within:text-inherit',
-                dark: 'peer-placeholder-shown:bg-transparent bg-black/20'
+                light: 'bg-light-background peer-focus-within:text-light-foreground',
+                dark: 'dark:bg-dark-background peer-focus-within:text-dark-foreground'
             },
         }
     },

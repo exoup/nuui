@@ -5,9 +5,9 @@ const FilledOptions = {
         },
         style: {
             default: {
-                light: 'aria-expanded:bg-gray-1',
-                dark: 'aria-expanded:dark:bg-gray-11/90',
-                hover: 'hover:bg-gray-1 hover:dark:bg-gray-11/90',
+                light: 'aria-expanded:bg-light-accent',
+                dark: 'aria-expanded:dark:bg-dark-accent',
+                hover: 'hover:bg-light-accent hover:dark:bg-dark-accent',
             }
         }
     },
@@ -17,8 +17,8 @@ const FilledOptions = {
         },
         style: {
             default: {
-                light: 'bg-gray-1',
-                dark: 'dark:bg-gray-11/90'
+                light: 'bg-light-accent',
+                dark: 'dark:bg-dark-accent'
             }
         }
     },
