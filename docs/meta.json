@@ -10,10 +10,21 @@
       "levels": [
         "Accordion"
       ],
-      "locStart": 22,
-      "locEnd": 36,
+      "locStart": 21,
+      "locEnd": 35,
       "filePath": "src/components/Accordion/Accordion.stories.jsx",
       "namedExport": "AccordionComponent",
+      "meta": {}
+    },
+    "accordion--custom-accordion": {
+      "name": "Custom accordion",
+      "levels": [
+        "Accordion"
+      ],
+      "locStart": 59,
+      "locEnd": 89,
+      "filePath": "src/components/Accordion/Accordion.stories.jsx",
+      "namedExport": "CustomnAccordionComponent",
       "meta": {}
     },
     "accordion--openable-accordion": {
@@ -21,8 +32,8 @@
       "levels": [
         "Accordion"
       ],
-      "locStart": 40,
-      "locEnd": 56,
+      "locStart": 39,
+      "locEnd": 55,
       "filePath": "src/components/Accordion/Accordion.stories.jsx",
       "namedExport": "NonAccordionComponent",
       "meta": {}
@@ -93,13 +104,24 @@
       "namedExport": "ShapeButtonDefault",
       "meta": {}
     },
+    "button--split-button": {
+      "name": "Split button",
+      "levels": [
+        "Button"
+      ],
+      "locStart": 78,
+      "locEnd": 95,
+      "filePath": "src/components/Button/Button.stories.jsx",
+      "namedExport": "SplitButtonDefault",
+      "meta": {}
+    },
     "card--card-with-accordion": {
       "name": "Card with accordion",
       "levels": [
         "Card"
       ],
-      "locStart": 87,
-      "locEnd": 107,
+      "locStart": 88,
+      "locEnd": 108,
       "filePath": "src/components/Card/Card.stories.jsx",
       "namedExport": "CardWithAccordion",
       "meta": {}
@@ -109,8 +131,8 @@
       "levels": [
         "Card"
       ],
-      "locStart": 35,
-      "locEnd": 53,
+      "locStart": 36,
+      "locEnd": 54,
       "filePath": "src/components/Card/Card.stories.jsx",
       "namedExport": "CardWithHero",
       "meta": {}
@@ -120,10 +142,21 @@
       "levels": [
         "Card"
       ],
-      "locStart": 55,
-      "locEnd": 71,
+      "locStart": 56,
+      "locEnd": 72,
       "filePath": "src/components/Card/Card.stories.jsx",
       "namedExport": "CardWithImage",
+      "meta": {}
+    },
+    "card--card-with-login": {
+      "name": "Card with login",
+      "levels": [
+        "Card"
+      ],
+      "locStart": 110,
+      "locEnd": 125,
+      "filePath": "src/components/Card/Card.stories.jsx",
+      "namedExport": "CardWithLogin",
       "meta": {}
     },
     "card--card-with-section": {
@@ -131,10 +164,32 @@
       "levels": [
         "Card"
       ],
-      "locStart": 73,
-      "locEnd": 85,
+      "locStart": 74,
+      "locEnd": 86,
       "filePath": "src/components/Card/Card.stories.jsx",
       "namedExport": "CardWithSection",
+      "meta": {}
+    },
+    "input--input": {
+      "name": "Input",
+      "levels": [
+        "Input"
+      ],
+      "locStart": 26,
+      "locEnd": 30,
+      "filePath": "src/components/Input/Input.stories.jsx",
+      "namedExport": "InputStory",
+      "meta": {}
+    },
+    "layout--login-page": {
+      "name": "Login page",
+      "levels": [
+        "Layout"
+      ],
+      "locStart": 6,
+      "locEnd": 26,
+      "filePath": "src/components/Layout/Layout.stories.jsx",
+      "namedExport": "LoginPage",
       "meta": {}
     },
     "menu--menu": {
@@ -142,8 +197,8 @@
       "levels": [
         "Menu"
       ],
-      "locStart": 31,
-      "locEnd": 48,
+      "locStart": 30,
+      "locEnd": 54,
       "filePath": "src/components/Menu/Menu.stories.jsx",
       "namedExport": "MenuStory",
       "meta": {}
@@ -153,8 +208,8 @@
       "levels": [
         "Menu"
       ],
-      "locStart": 52,
-      "locEnd": 79,
+      "locStart": 58,
+      "locEnd": 88,
       "filePath": "src/components/Menu/Menu.stories.jsx",
       "namedExport": "MenuProfile",
       "meta": {}
