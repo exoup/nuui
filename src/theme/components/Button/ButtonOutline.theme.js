@@ -7,6 +7,7 @@ const OutlineOptions = {
         },
         hover: 'hover:bg-light-accent dark:hover:bg-dark-accent',
         active: 'active:bg-light-active/10 dark:active:bg-dark-active/10',
+        focus: 'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-7 focus-visible:ring-offset-2 focus-visible:dark:ring-offset-dark-background',
         disabled: 'disabled:opacity-30',
     }
 };

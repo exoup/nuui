@@ -23,27 +23,11 @@ const FloatOptions = {
         },
         style: {
             default: {
-                light: 'bg-light-background peer-focus-within:text-light-foreground',
-                dark: 'dark:bg-dark-background peer-focus-within:text-dark-foreground'
+                light: 'bg-light-background text-light-foreground peer-focus-within:text-light-foreground',
+                dark: 'dark:bg-dark-background dark:text-dark-foreground peer-focus-within:dark:text-dark-foreground'
             },
         }
     },
 };
 
 export default FloatOptions;
-
-// const OverlapOptions = {
-//     input: {
-//         base: 'block w-full px-4 bg-transparent peer',
-//         animation: 'transition-all',
-//         reset: 'border-none focus:ring-0 focus-visible:outline-0',
-//     },
-//     label: {
-//         base: 'w-full pointer-events-none',
-//         position: 'absolute top-1/2 left-3 -translate-y-1/2',
-//         focus: 'peer-focus:-top-2.5 peer-focus:text-sm peer-focus:bg-white peer-focus:translate-y-[unset] peer-focus:px-1',
-//         animation: 'transition-all',
-//     },
-// };
-
-// export default OverlapOptions;
