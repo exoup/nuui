@@ -20,23 +20,24 @@ const Avatar = ({ name, src, alt, flush = false, color, radius, size, variant, c
 
     useEffect(() => {
         setImageLoaded(false);
+        let imgRef = avatarImageRef;
 
-        if (avatarImageRef.current) {
+        if (imgRef.current) {
             if (typeof src === 'string') {
-                avatarImageRef.current.src = src;
-                avatarImageRef.current.onload = () => {
+                imgRef.current.src = src;
+                imgRef.current.onload = () => {
                     setImageLoaded(true);
                 };
-                avatarImageRef.current.onerror = () => {
+                imgRef.current.onerror = () => {
                     setImageLoaded(false);
                 };
             }
         }
 
         return () => {
-            if (avatarImageRef.current) {
-                avatarImageRef.current.onload = null;
-                avatarImageRef.current.onerror = null;
+            if (imgRef.current) {
+                imgRef.current.onload = null;
+                imgRef.current.onerror = null;
             }
         };
     }, [src]);
@@ -81,7 +82,7 @@ const Avatar = ({ name, src, alt, flush = false, color, radius, size, variant, c
     )
 };
 
-export const AvatarWithText = ({ className, children, onClick = () => { }, ...args }) => {
+export const AvatarWithText = ({ className, children, ...args }) => {
     const { avatar } = useTheme();
     const { styles } = avatar.withtext;
     const { initial } = styles;
@@ -96,7 +97,6 @@ export const AvatarWithText = ({ className, children, onClick = () => { }, ...ar
     return (
         <div
             {...args}
-            onClick={onClick}
             className={classes}>
             {children}
         </div>
