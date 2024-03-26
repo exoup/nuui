@@ -53,7 +53,7 @@ PillButtonDefault.storyName = 'Pill Button';
 
 export const ShapeButtonDefault = ({ ...args }) => (
     <Button {...args}>
-        <CheckIcon className="size-14 p-2" />
+        <CheckIcon className="size-14 p-2" aria-label="CheckButton" />
     </Button>
 );
 
@@ -80,7 +80,7 @@ export const SplitButtonDefault = ({ children, ...args }) => (
         <div className='flex flex-row'>
             <Button {...args} className={'rounded-r-none border-r-black/25 border-r'}>{children}</Button>
             <MenuControl>
-                <Button color={args.color} radius={args.radius} size={args.size} variant={args.variant} className={'px-2.5 rounded-l-none'}>
+                <Button color={args.color} radius={args.radius} size={args.size} variant={args.variant} className={'px-2.5 rounded-l-none'} aria-label="MenuToggle">
                     <ChevronDownIcon className="size-6" />
                 </Button>
             </MenuControl>
