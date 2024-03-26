@@ -10,7 +10,7 @@ const generateId = () => Math.random().toString(36).substring(2, 9);
 export default function Menu({ children, className }) {
     return (
         <MenuProvider>
-            <div className={twMerge(className)}>{children}</div>
+            <div className={twMerge('size-max', className)}>{children}</div>
         </MenuProvider>
     );
 }
@@ -30,8 +30,7 @@ export const MenuControl = ({ children }) => {
     }, [setButtonControllerId, setMenuId]);
 
     return (
-        <div ref={buttonRef}
-            className='size-max'>
+        <div ref={buttonRef}>
             {
                 Children.map(children, (child) => {
                     if (isValidElement(child)) {
@@ -42,7 +41,8 @@ export const MenuControl = ({ children }) => {
                             "aria-controls": menuId,
                             "aria-expanded": String(isOpen),
                             "aria-haspopup": "true",
-                            onClick: handleClick
+                            onClick: handleClick,
+                            tabIndex: 0
                         });
                     }
                     return child;
