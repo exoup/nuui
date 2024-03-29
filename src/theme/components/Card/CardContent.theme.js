@@ -1,6 +1,6 @@
 export const content = {
     defaultOptions: {
-        variant: 'primary'
+        variant: 'default'
     },
     styles: {
         initial: {

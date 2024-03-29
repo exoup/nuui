@@ -14,7 +14,7 @@ export const card = {
     },
     styles: {
         initial: {
-            base: 'w-96 overflow-hidden shadow',
+            base: 'overflow-hidden shadow',
         },
         radii: {
             round: 'rounded-md',

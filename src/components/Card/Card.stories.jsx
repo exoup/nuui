@@ -72,7 +72,7 @@ export const CardWithImage = ({ ...args }) => (
 );
 
 export const CardWithSection = ({ ...args }) => (
-    <Card {...args}>
+    <Card {...args} className={"w-96"}>
         <Content variant={args.color}>
             <Title className="text-xl">This is a section card.</Title>
             <Section sections={[
@@ -86,7 +86,7 @@ export const CardWithSection = ({ ...args }) => (
 );
 
 export const CardWithAccordion = ({ ...args }) => (
-    <Card {...args}>
+    <Card {...args} className="w-96">
         <Hero className="h-64 bg-primary dark:bg-roman-3 heroPatternCogs" />
         <Content variant={args.color}>
             <Title className="text-xl">This is an accordion card.</Title>
@@ -108,7 +108,7 @@ export const CardWithAccordion = ({ ...args }) => (
 );
 
 export const CardWithLogin = ({ ...args }) => (
-    <Card {...args} className="pb-2 border-l-roman-5 border-l-8 rounded-l-md">
+    <Card {...args} className="pb-2 border-l-roman-5 border-l-8 rounded-l-md w-96">
         <Content variant={args.color} className="flex flex-col place-content-center">
             <form className="flex flex-col gap-6" onSubmit={(e) => e.preventDefault()} action="#">
                 <Title className="text-2xl">Login</Title>
