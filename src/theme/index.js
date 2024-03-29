@@ -4,6 +4,7 @@ import button from "./components/Button/Button.theme";
 import card from "./components/Card/Card.theme";
 import input from "./components/Input/Input.theme";
 import menu from "./components/Menu/Menu.theme";
+import sidebar from "./components/Sidebar/Sidebar.theme";
 import typography from "./components/Typography/Typography.theme";
 
 const theme = {
@@ -13,6 +14,7 @@ const theme = {
     card,
     input,
     menu,
+    sidebar,
     typography
 }
 
