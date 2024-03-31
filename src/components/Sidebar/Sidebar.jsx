@@ -48,6 +48,7 @@ const Sidebar = ({ typography, color, radius, variant, className, children, ...a
 
 export const SidebarContent = ({
     radius,
+    variant,
     className,
     children,
     ...args
@@ -55,15 +56,16 @@ export const SidebarContent = ({
 
     const { sidebar } = useTheme();
     const { defaultOptions, styles } = sidebar.content;
-    const { initial, radii } = styles;
+    const { initial, radii, variants } = styles;
 
     const resolvedRadius = radius || defaultOptions.radius;
+    const resolvedVariant = variant || defaultOptions.variant;
 
     const initialClasses = mapObjectToString(initial);
     const lookupClasses = twJoin(
         lookupOptions(radii, resolvedRadius, defaultOptions.radius),
+        lookupOptions(variants, resolvedVariant, defaultOptions.variant),
     );
-
 
     const classes = twMerge(
         ...initialClasses,
@@ -169,14 +171,14 @@ export const SidebarSubmenu = ({
     );
 };
 
-export const SidebarItem = ({ active = false, disabled = false, color, variant, className, children, ...args }) => {
+export const SidebarItem = ({ active = false, disabled = false, color, radius, variant, className, children, ...args }) => {
 
     const { sidebar, themeColor } = useTheme();
     const { defaultOptions, styles } = sidebar.item;
     const { initial, radii, variants } = styles;
 
     const resolvedColor = color || themeColor || defaultOptions.color;
-    const resolvedRadius = radii || defaultOptions.radius;
+    const resolvedRadius = radius || defaultOptions.radius;
     const resolvedVariant = variant || defaultOptions.variant;
 
     const initialClasses = mapObjectToString(initial);
@@ -196,12 +198,16 @@ export const SidebarItem = ({ active = false, disabled = false, color, variant, 
             {...args}
             data-active={active}
             aria-disabled={disabled}
-            role="button">
-            <div className={classes}>
-                {children}
-            </div>
+            tabIndex={disabled ? -1 : 0}
+            role={args.role || "button"}
+            className={classes}>
+            {children}
         </li>
     )
+};
+
+export const SidebarTextItem = ({ active = false, disabled = false, color, radius, variant = 'text', className, ...args }) => {
+    return <SidebarItem active={active} disabled={disabled} color={color} radius={radius} variant={variant} className={className} {...args} />
 };
 
 export const SidebarDivider = ({ className, ...args }) => {

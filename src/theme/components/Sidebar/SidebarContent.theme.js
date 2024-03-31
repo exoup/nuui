@@ -1,15 +1,20 @@
 export const content = {
     defaultOptions: {
         radius: 'round',
+        variant: 'solid',
     },
     styles: {
         initial: {
-            base: 'm-4 space-y-1',
+            base: 'space-y-1',
         },
         radii: {
             round: 'rounded-md',
             sharp: 'rounded-none'
         },
+        variants: {
+            solid: 'm-4 ',
+            text: 'py-2',
+        }
     }
 };
 

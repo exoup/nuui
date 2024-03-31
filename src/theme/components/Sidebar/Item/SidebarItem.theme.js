@@ -1,5 +1,6 @@
 // theme options
 import FilledOptions from "./ItemFilled.theme";
+import TextOptions from "./ItemText.theme";
 
 export const item = {
     defaultOptions: {
@@ -18,7 +19,8 @@ export const item = {
             sharp: 'rounded-none'
         },
         variants: {
-            solid: FilledOptions
+            solid: FilledOptions,
+            text: TextOptions,
         }
     }
 };
