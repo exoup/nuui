@@ -55,10 +55,12 @@ SidebarStory.argTypes = {
 export const TextSidebarStory = ({ ...args }) => (
     <Sidebar {...args} className="w-56 h-full">
         <SidebarContent {...args}>
-            <SidebarTextItem className={"font-bold !text-inherit hover:!text-inherit"} role="heading">Getting Started</SidebarTextItem>
-            <SidebarTextItem disabled>Installing</SidebarTextItem>
-            <SidebarTextItem active>Using</SidebarTextItem>
-            <SidebarTextItem>Default Theme</SidebarTextItem>
+            <SidebarSubmenu {...args} title="Getting Started" expanded>
+                {/* <SidebarTextItem className={"font-bold !text-inherit hover:!text-inherit"} role="heading">Getting Started</SidebarTextItem> */}
+                <SidebarTextItem disabled>Installing</SidebarTextItem>
+                <SidebarTextItem active>Using</SidebarTextItem>
+                <SidebarTextItem>Default Theme</SidebarTextItem>
+            </SidebarSubmenu>
         </SidebarContent>
     </Sidebar>
 )

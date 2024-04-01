@@ -1,5 +1,6 @@
 // theme options
 import FilledOptions from "./SubmenuFilled.theme";
+import TextOptions from "./SubmenuText.theme";
 
 export const submenu = {
     defaultOptions: {
@@ -9,7 +10,7 @@ export const submenu = {
     },
     styles: {
         initial: {
-            base: 'flex py-2 px-4 cursor-pointer',
+            base: 'flex cursor-pointer',
             disabled: 'aria-disabled:opacity-30 dark:aria-disabled:opacity-40 aria-disabled:hover:!bg-transparent aria-disabled:pointer-events-none',
             focus: 'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-7',
         },
@@ -19,6 +20,7 @@ export const submenu = {
         },
         variants: {
             solid: FilledOptions,
+            text: TextOptions,
         }
     }
 };

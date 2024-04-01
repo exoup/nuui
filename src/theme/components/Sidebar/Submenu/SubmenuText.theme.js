@@ -1,4 +1,4 @@
-const FilledOptions = {
+const TextOptions = {
     children: {
         base: {
             initial: 'space-y-1 px-4 mt-1',
@@ -21,7 +21,8 @@ const FilledOptions = {
     },
     summary: {
         base: {
-            initial: 'list-none items-center justify-between py-2 px-4',
+            initial: 'list-none items-center justify-between pr-2 py-1',
+            text: 'text-sm font-sans font-semibold tracking-normal leading-normal capitalize'
         },
         style: {
             default: {
@@ -32,4 +33,4 @@ const FilledOptions = {
     },
 };
 
-export default FilledOptions;
+export default TextOptions;
