@@ -135,4 +135,4 @@ Card.Content = Content;
 Card.Hero = Hero;
 Card.Section = Section;
 Card.Title = Title;
-export default Card;
+export { Card };

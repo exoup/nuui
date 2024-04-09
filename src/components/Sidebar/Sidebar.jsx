@@ -46,7 +46,7 @@ const Sidebar = ({ typography, color, radius, variant, className, children, ...a
     )
 };
 
-export const Content = ({
+const Content = ({
     radius,
     variant,
     className,
@@ -82,7 +82,7 @@ export const Content = ({
     )
 };
 
-export const Submenu = ({
+const Submenu = ({
     title,
     expanded = false,
     icon = false,
@@ -171,7 +171,7 @@ export const Submenu = ({
     );
 };
 
-export const Item = ({ active = false, disabled = false, color, radius, variant, className, children, ...args }) => {
+const Item = ({ active = false, disabled = false, color, radius, variant, className, children, ...args }) => {
 
     const { sidebar, themeColor } = useTheme();
     const { defaultOptions, styles } = sidebar.item;
@@ -206,11 +206,11 @@ export const Item = ({ active = false, disabled = false, color, radius, variant,
     )
 };
 
-export const TextItem = ({ active = false, disabled = false, color, radius, variant = 'text', className, ...args }) => {
+const TextItem = ({ active = false, disabled = false, color, radius, variant = 'text', className, ...args }) => {
     return <Item active={active} disabled={disabled} color={color} radius={radius} variant={variant} className={className} {...args} />
 };
 
-export const Divider = ({ className, ...args }) => {
+const Divider = ({ className, ...args }) => {
     const { sidebar } = useTheme();
     const { styles } = sidebar.divider;
     const { initial } = styles;
