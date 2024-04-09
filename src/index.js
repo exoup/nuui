@@ -1,18 +1,23 @@
-//components
-export * from './components/Accordion/Accordion.jsx';
-export * from './components/Avatar/Avatar.jsx';
-export * from './components/Button/Button.jsx';
-export * from './components/Card/Card.jsx';
-export * from './components/Input/Input.jsx';
-export * from './components/Menu/Menu.jsx';
-export * from './components/Sidebar/Sidebar.jsx';
+//context
+import { ThemeProvider, useTheme, ThemeContext } from './context/ThemeContext';
+//theme
+import { default as theme_default } from './theme';
+//plugin
+import { _default as coloar_default } from './resources/colar';
+import { plugin as twill_plugin } from './resources/twill';
 
 //context
-export * from './context/ThemeContext.jsx';
-
+export { ThemeProvider, useTheme, ThemeContext };
 //theme
-export * from './theme/index.js';
-
+export const TwillTheme = theme_default;
 //plugin
-export * from './resources/colar.js';
-export * from './resources/nuui.js';
+export const colar = coloar_default;
+export const plugin = twill_plugin;
+//components
+export * from './components/Accordion/Accordion';
+export * from './components/Avatar/Avatar';
+export * from './components/Button/Button';
+export * from './components/Card/Card';
+export * from './components/Input/Input';
+export * from './components/Menu/Menu';
+export * from './components/Sidebar/Sidebar';

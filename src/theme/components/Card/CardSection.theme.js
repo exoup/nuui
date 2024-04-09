@@ -1,4 +1,4 @@
-export const section = {
+const section = {
     styles: {
         initial: {
             base: 'divide-y divide-inherit',

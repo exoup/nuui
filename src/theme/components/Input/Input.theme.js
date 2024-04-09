@@ -1,7 +1,7 @@
 // theme options
 import FloatOptions from "./InputFloat.theme";
 
-export const input = {
+const input = {
     defaultOptions: {
         color: 'default',
         radius: 'round',
@@ -24,4 +24,4 @@ export const input = {
     }
 };
 
-export default input;
+export { input };

@@ -82,7 +82,7 @@ const Avatar = ({ name, src, alt, flush = false, color, radius, size, variant, c
     )
 };
 
-export const AvatarWithText = ({ className, children, ...args }) => {
+const WithText = ({ className, children, ...args }) => {
     const { avatar } = useTheme();
     const { styles } = avatar.withtext;
     const { initial } = styles;
@@ -103,7 +103,7 @@ export const AvatarWithText = ({ className, children, ...args }) => {
     )
 };
 
-export const Content = ({ typography, className, children, ...args }) => {
+const Content = ({ typography, className, children, ...args }) => {
     const { avatar, typography: typographyOptions, themeColor } = useTheme();
     const { styles } = avatar.content;
     const { initial } = styles;
@@ -130,7 +130,7 @@ export const Content = ({ typography, className, children, ...args }) => {
     )
 };
 
-export const Title = ({ className, children, ...args }) => {
+const Title = ({ className, children, ...args }) => {
     const { avatar } = useTheme();
     const { styles } = avatar.title;
     const { initial } = styles;
@@ -151,7 +151,7 @@ export const Title = ({ className, children, ...args }) => {
     )
 };
 
-export const Subtitle = ({ className, children, ...args }) => {
+const Subtitle = ({ className, children, ...args }) => {
     const { avatar } = useTheme();
     const { styles } = avatar.subtitle;
     const { initial } = styles;
@@ -172,4 +172,8 @@ export const Subtitle = ({ className, children, ...args }) => {
     )
 };
 
-export default Avatar;
+Avatar.Content = Content;
+Avatar.Subtitle = Subtitle;
+Avatar.Title = Title;
+Avatar.WithText = WithText;
+export { Avatar };

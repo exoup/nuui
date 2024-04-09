@@ -46,7 +46,7 @@ const Sidebar = ({ typography, color, radius, variant, className, children, ...a
     )
 };
 
-export const SidebarContent = ({
+export const Content = ({
     radius,
     variant,
     className,
@@ -82,7 +82,7 @@ export const SidebarContent = ({
     )
 };
 
-export const SidebarSubmenu = ({
+export const Submenu = ({
     title,
     expanded = false,
     icon = false,
@@ -171,7 +171,7 @@ export const SidebarSubmenu = ({
     );
 };
 
-export const SidebarItem = ({ active = false, disabled = false, color, radius, variant, className, children, ...args }) => {
+export const Item = ({ active = false, disabled = false, color, radius, variant, className, children, ...args }) => {
 
     const { sidebar, themeColor } = useTheme();
     const { defaultOptions, styles } = sidebar.item;
@@ -206,11 +206,11 @@ export const SidebarItem = ({ active = false, disabled = false, color, radius, v
     )
 };
 
-export const SidebarTextItem = ({ active = false, disabled = false, color, radius, variant = 'text', className, ...args }) => {
-    return <SidebarItem active={active} disabled={disabled} color={color} radius={radius} variant={variant} className={className} {...args} />
+export const TextItem = ({ active = false, disabled = false, color, radius, variant = 'text', className, ...args }) => {
+    return <Item active={active} disabled={disabled} color={color} radius={radius} variant={variant} className={className} {...args} />
 };
 
-export const SidebarDivider = ({ className, ...args }) => {
+export const Divider = ({ className, ...args }) => {
     const { sidebar } = useTheme();
     const { styles } = sidebar.divider;
     const { initial } = styles;
@@ -226,4 +226,9 @@ export const SidebarDivider = ({ className, ...args }) => {
     </div>;
 };
 
-export default Sidebar;
+Sidebar.Content = Content;
+Sidebar.Divider = Divider;
+Sidebar.Item = Item;
+Sidebar.Submenu = Submenu;
+Sidebar.TextItem = TextItem;
+export { Sidebar };

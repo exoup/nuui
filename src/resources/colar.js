@@ -1,7 +1,4 @@
-/*eslint no-undef: "error"*/
-/*eslint-env node*/
-
-module.exports = {
+export const _default = {
     gray: {
         0: '#F8FAFB',
         1: '#F2F4F6',
@@ -271,5 +268,5 @@ module.exports = {
         10: '#658006',
         11: '#516605',
         12: '#3D4D04',
-    },
+    }
 }

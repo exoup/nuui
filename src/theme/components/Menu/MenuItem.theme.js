@@ -1,4 +1,4 @@
-export const item = {
+const item = {
     styles: {
         initial: {
             base: 'flex items-center w-full py-2 px-3 rounded-[inherit] gap-2',

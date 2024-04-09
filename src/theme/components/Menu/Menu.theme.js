@@ -4,7 +4,7 @@ import FilledOptions from "./MenuFilled.theme";
 import item from "./MenuItem.theme";
 import divider from "./MenuDivider.theme";
 
-export const menu = {
+const menu = {
     defaultOptions: {
         color: 'default',
         radius: 'round',
@@ -27,4 +27,4 @@ export const menu = {
 
 menu.item = item;
 menu.divider = divider;
-export default menu;
+export { menu };

@@ -6,7 +6,7 @@ import content from "./AvatarContent.theme";
 import title from "./AvatarTitle.theme";
 import subtitle from "./AvatarSubtitle.theme";
 
-export const avatar = {
+const avatar = {
     defaultOptions: {
         color: 'default',
         radius: 'full',
@@ -46,4 +46,4 @@ avatar.withtext = withtext;
 avatar.content = content;
 avatar.title = title;
 avatar.subtitle = subtitle;
-export default avatar;
+export { avatar };

@@ -1,9 +1,9 @@
 // theme options
 import FilledOptions from "./AccordionFilled.theme";
 // components
-import drawer from "./Drawer/AccordionDrawer.theme";
+import { drawer } from "./Drawer/AccordionDrawer.theme";
 
-export const accordion = {
+const accordion = {
     defaultOptions: {
         color: 'default',
         radius: 'round',
@@ -25,4 +25,4 @@ export const accordion = {
 };
 
 accordion.drawer = drawer;
-export default accordion;
+export { accordion };

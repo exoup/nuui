@@ -1,4 +1,4 @@
-export const withtext = {
+const withtext = {
     styles: {
         initial: {
             base: 'flex items-center max-w-max gap-3',

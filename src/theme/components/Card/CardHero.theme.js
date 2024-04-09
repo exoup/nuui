@@ -1,4 +1,4 @@
-export const hero = {
+const hero = {
     styles: {
         initial: {
             base: 'w-full',

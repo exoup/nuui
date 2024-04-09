@@ -1,4 +1,4 @@
-export const content = {
+const content = {
     styles: {
         initial: {
             base: 'truncate',

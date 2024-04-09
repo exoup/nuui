@@ -1,10 +1,10 @@
 /*eslint no-undef: "error"*/
 /*eslint-env node*/
 
-const plugin = require('tailwindcss/plugin');
-const colar = require('./colar');
+const twPlugin = require('tailwindcss/plugin');
+const colar = require('./colar')._default;
 
-module.exports = plugin(function ({ matchUtilities, theme }) {
+export const plugin = twPlugin(function ({ matchUtilities, theme }) {
     matchUtilities(
         {
             colors: (value) => ({

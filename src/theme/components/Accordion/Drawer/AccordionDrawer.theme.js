@@ -1,6 +1,6 @@
 import FilledOptions from "./DrawerFilled.theme";
 
-export const drawer = {
+const drawer = {
     defaultOptions: {
         color: 'default',
         variant: 'solid',
@@ -17,4 +17,4 @@ export const drawer = {
     }
 };
 
-export default drawer;
+export { drawer };

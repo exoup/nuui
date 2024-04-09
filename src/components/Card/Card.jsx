@@ -36,7 +36,7 @@ const Card = ({ color, radius, variant, className, children, ...args }) => {
     )
 };
 
-export const Hero = ({ className, children, ...args }) => {
+const Hero = ({ className, children, ...args }) => {
     const { card } = useTheme();
     const { styles } = card.hero;
     const { initial } = styles;
@@ -57,7 +57,7 @@ export const Hero = ({ className, children, ...args }) => {
     )
 };
 
-export const Content = ({ variant, className, children, ...args }) => {
+const Content = ({ variant, className, children, ...args }) => {
     const { card, themeColor } = useTheme();
     const { defaultOptions, styles } = card.content;
     const { initial, variants } = styles;
@@ -84,7 +84,7 @@ export const Content = ({ variant, className, children, ...args }) => {
     )
 };
 
-export const Title = ({ className, children, ...args }) => {
+const Title = ({ className, children, ...args }) => {
     const { card } = useTheme();
     const { styles } = card.title;
     const { initial } = styles;
@@ -105,7 +105,7 @@ export const Title = ({ className, children, ...args }) => {
     )
 };
 
-export const Section = ({ sections, className }) => {
+const Section = ({ sections, className }) => {
     const { card } = useTheme();
     const { styles } = card.section;
     const { initial, section } = styles;
@@ -131,4 +131,8 @@ export const Section = ({ sections, className }) => {
     )
 };
 
+Card.Content = Content;
+Card.Hero = Hero;
+Card.Section = Section;
+Card.Title = Title;
 export default Card;

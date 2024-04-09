@@ -1,4 +1,4 @@
-export const title = {
+const title = {
     styles: {
         initial: {
             base: 'text-2xl font-semibold mb-2',

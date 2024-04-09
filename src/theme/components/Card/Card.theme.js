@@ -6,7 +6,7 @@ import content from "./CardContent.theme";
 import title from "./CardTitle.theme";
 import section from "./CardSection.theme";
 
-export const card = {
+const card = {
     defaultOptions: {
         color: 'default',
         radius: 'round',
@@ -30,4 +30,4 @@ card.hero = hero;
 card.content = content;
 card.title = title;
 card.section = section;
-export default card;
+export { card };

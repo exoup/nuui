@@ -4,7 +4,7 @@ import { twMerge, twJoin } from "tailwind-merge";
 import lookupOptions from "../../util/lookupOptions";
 import mapObjectToString from "../../util/mapObjectToString";
 
-export default function Accordion({ onChange = null, initialExpanded = [], accordionMode = true, flush = false, typography, color, radius, variant, className, children, ...args }) {
+const Accordion = ({ onChange = null, initialExpanded = [], accordionMode = true, flush = false, typography, color, radius, variant, className, children, ...args }) => {
 
     const useDrawer = (initialExpanded) => {
         const [openDrawers, setOpenDrawers] = useState(initialExpanded);
@@ -70,7 +70,7 @@ export default function Accordion({ onChange = null, initialExpanded = [], accor
     )
 }
 
-export const Drawer = ({ ariaId, ariaControls, title, onClick = () => { }, onChange, expanded = false, icon = true, buttonProps, color, variant, className, children }) => {
+const Drawer = ({ ariaId, ariaControls, title, onClick = () => { }, onChange, expanded = false, icon = true, buttonProps, color, variant, className, children }) => {
 
     const handleClick = () => {
         if (onChange) {
@@ -149,5 +149,8 @@ export const Drawer = ({ ariaId, ariaControls, title, onClick = () => { }, onCha
         </div>
     );
 };
+
+Accordion.Drawer = Drawer;
+export { Accordion };
 
 // [Thanks for the black magic!](https://nemzes.net/posts/animating-height-auto/)

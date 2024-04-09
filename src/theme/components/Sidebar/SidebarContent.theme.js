@@ -1,4 +1,4 @@
-export const content = {
+const content = {
     defaultOptions: {
         radius: 'round',
         variant: 'solid',

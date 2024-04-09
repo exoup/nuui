@@ -7,7 +7,7 @@ import lookupOptions from "../../util/lookupOptions";
 
 const generateId = () => Math.random().toString(36).substring(2, 9);
 
-export default function Menu({ children, className }) {
+const Menu = ({ children, className }) => {
     return (
         <MenuProvider>
             <div className={twMerge('size-max', className)}>{children}</div>
@@ -15,7 +15,7 @@ export default function Menu({ children, className }) {
     );
 }
 
-export const MenuControl = ({ children }) => {
+const Control = ({ children }) => {
     const { toggleMenu, isOpen, setButtonRef, buttonRef, buttonControllerId, setButtonControllerId, menuId, setMenuId } = useMenu();
     const buttonGroupRef = useRef(null);
 
@@ -52,7 +52,7 @@ export const MenuControl = ({ children }) => {
     );
 };
 
-export const MenuContent = ({
+const Content = ({
     alignment = "center",
     typography,
     color,
@@ -164,7 +164,7 @@ export const MenuContent = ({
     );
 };
 
-export const MenuItem = ({ disabled = false, className, children, ...args }) => {
+const Item = ({ disabled = false, className, children, ...args }) => {
     const { menu } = useTheme();
     const { styles } = menu.item;
     const { initial } = styles;
@@ -185,7 +185,7 @@ export const MenuItem = ({ disabled = false, className, children, ...args }) => 
     );
 };
 
-export const MenuDivider = ({ className, ...args }) => {
+const Divider = ({ className, ...args }) => {
     const { menu } = useTheme();
     const { styles } = menu.divider;
     const { initial } = styles;
@@ -201,6 +201,11 @@ export const MenuDivider = ({ className, ...args }) => {
     </div>;
 };
 
+Menu.Conrol = Control;
+Menu.Content = Content;
+Menu.Divider = Divider;
+Menu.Item = Item;
+export { Menu };
 // /* Always center carot to middle of button. */
 // /* TODO: Break carot out into own component. */
 // /* {carot && <div className="size-4 bg-white z-[12] border-t border-l border-slate-300 rotate-45 rounded-tl-sm"></div>} */

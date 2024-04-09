@@ -1,44 +1,66 @@
 {
-    "name": "nuui",
-    "version": "0.0.1",
-    "description": "A small tailwind based ui component library for use in React projects",
-    "license": "MIT",
-    "main": "index.js",
-    "scripts": {
-        
+  "name": "twill-ui",
+  "version": "0.0.1",
+  "description": "A small tailwind based ui component library for use in React projects. Work in progress.",
+  "license": "MIT",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/exoup/twill.git"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && publint --strict",
+    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "tailwind-merge": "^2.2.2"
+  },
+  "devDependencies": {
+    "@tanstack/config": "^0.6.0",
+    "@types/react": "^18.2.66",
+    "@types/react-dom": "^18.2.22",
+    "@vitejs/plugin-react": "^4.2.1",
+    "eslint": "^8.57.0",
+    "eslint-plugin-react": "^7.34.1",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.6",
+    "publint": "^0.2.7",
+    "vite": "^5.2.0"
+  },
+  "peerDependencies": {
+    "@tailwindcss/forms": "^0.5.7",
+    "react": "^16 || ^17 || ^18",
+    "react-dom": "^16 || ^17 || ^18"
+  },
+  "keywords": [
+    "twill",
+    "twill-ui",
+    "twillui",
+    "react",
+    "react components",
+    "tailwind",
+    "tailwind components",
+    "ui",
+    "ui library",
+    "components",
+    "library"
+  ],
+  "exports": {
+    ".": {
+      "import": {
+        "default": "./dist/esm/index.js"
+      },
+      "require": {
+        "default": "./dist/cjs/index.cjs"
+      }
     },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/exoup/nuui.git"
-    },
-    "dependencies": {
-        "react": "18.2.0",
-        "react-dom": "18.2.0",
-        "tailwindcss": "^3.4.3",
-        "tailwind-merge": "^2.2.2",
-        "@tailwindcss/forms": "^0.5.7"
-    },
-    "devDependencies": {
-        "autoprefixer": "^10.4.17",
-        "eslint": "^8.57.0",
-        "eslint-plugin-react": "^7.34.0",
-        "eslint-plugin-react-hooks": "^4.6.0",
-        "postcss": "^8.4.33"
-    },
-    "peerDependencies": {
-        "react": "^16 || ^17 || ^18",
-        "react-dom": "^16 || ^17 || ^18",
-        "tailwindcss": "^3"
-    },
-    "keywords": [
-        "nuui",
-        "react",
-        "react components",
-        "tailwind",
-        "tailwind components",
-        "ui",
-        "ui library",
-        "components",
-        "library"
-    ]
+    "./package.json": "./package.json"
+  }
 }

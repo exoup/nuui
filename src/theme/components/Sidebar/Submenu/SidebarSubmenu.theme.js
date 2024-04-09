@@ -2,7 +2,7 @@
 import FilledOptions from "./SubmenuFilled.theme";
 import TextOptions from "./SubmenuText.theme";
 
-export const submenu = {
+const submenu = {
     defaultOptions: {
         color: 'default',
         radius: 'round',

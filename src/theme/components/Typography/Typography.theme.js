@@ -1,4 +1,4 @@
-export const typography = {
+const typography = {
     defaultOptions: {
         variant: 'default'
     },
@@ -12,4 +12,4 @@ export const typography = {
     }
 };
 
-export default typography;
+export { typography };

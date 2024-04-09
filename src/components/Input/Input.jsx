@@ -71,4 +71,4 @@ const Input = ({ containerProps, labelProps, label, placeholder, typography, col
     )
 };
 
-export default Input;
+export { Input };

@@ -6,7 +6,7 @@ import divider from "./SidebarDivider.theme";
 import item from "./Item/SidebarItem.theme";
 import submenu from "./Submenu/SidebarSubmenu.theme";
 
-export const sidebar = {
+const sidebar = {
     defaultOptions: {
         color: 'default',
         radius: 'sharp',
@@ -29,4 +29,4 @@ sidebar.content = content;
 sidebar.divider = divider;
 sidebar.item = item;
 sidebar.submenu = submenu;
-export default sidebar;
+export { sidebar };

@@ -2,7 +2,7 @@
 import FilledOptions from "./ItemFilled.theme";
 import TextOptions from "./ItemText.theme";
 
-export const item = {
+const item = {
     defaultOptions: {
         color: 'default',
         radius: 'round',

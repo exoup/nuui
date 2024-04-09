@@ -1,7 +1,7 @@
 import FilledOptions from './ButtonFilled.theme';
 import OutlineOptions from './ButtonOutline.theme';
 
-export const button = {
+const button = {
     defaultOptions: {
         color: 'default',
         radius: 'round',
@@ -32,4 +32,4 @@ export const button = {
     }
 };
 
-export default button;
+export { button };

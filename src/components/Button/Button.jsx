@@ -39,4 +39,4 @@ const Button = ({ color, radius, size, variant, className, children, ...args }) 
     )
 };
 
-export default Button;
+export { Button };
