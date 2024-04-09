@@ -1,6 +1,6 @@
 {
   "name": "twill-ui",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A small tailwind based ui component library for use in React projects. Work in progress.",
   "license": "MIT",
   "type": "module",
