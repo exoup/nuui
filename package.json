@@ -1,7 +1,7 @@
 {
-  "name": "twill-ui",
+  "name": "@twill/core",
   "version": "0.0.1",
-  "description": "A small tailwind based ui component library for use in React projects. Work in progress.",
+  "description": "Core package for a small tailwind based ui component library for use in React projects. Work in progress.",
   "license": "MIT",
   "type": "module",
   "repository": {
